@@ -106,7 +106,7 @@
         /* Container */
         .container {
             max-width: 1400px;
-            width: 90%;
+            width: 95%;
             margin: 2.5rem auto;
             padding: 0 1.5rem;
             flex: 1;
@@ -228,10 +228,10 @@
             border-radius: 0.375rem;
         }
 
-        /* Side-By-Side Flex/Grid Setup for Dashboard Cards */
+        /* Side-By-Side Grid Setup for Dashboard Categories */
         .sections-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 2rem;
             align-items: start;
         }
@@ -271,7 +271,7 @@
             margin-top: 1.25rem;
         }
 
-        /* Direct Route URL Grid Button elements */
+        /* Direct Route URL Buttons */
         .uat-link-btn {
             display: flex;
             align-items: center;
@@ -328,7 +328,7 @@
             cursor: pointer;
         }
 
-        /* Secure Password Modal Window Overlay Styles */
+        /* Secure Password Modal Window Styles */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -427,4 +427,419 @@
 
         <div id="admin-view" class="view-panel">
             
-            <div class="card" style="display: flex; gap: 1.5rem; justify-content: space-between; align-items: center
+            <div class="card" style="display: flex; gap: 1.5rem; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <div>
+                    <h3 style="margin: 0 0 0.35rem 0; font-size: 1.15rem; color: #f1f5f9;">⚙️ Configuration Utility</h3>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Backup configuration arrays or reset active dashboard layouts instantly.</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem;">
+                    <button class="view-btn btn-success" onclick="exportToJSON()">📤 Export JSON</button>
+                    <div class="file-input-wrapper">
+                        <button class="view-btn btn-secondary">📥 Import JSON</button>
+                        <input type="file" id="import-file-input" accept=".json" onchange="importFromJSON(event)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-grid">
+                <div class="card">
+                    <h2>📂 Create New Section</h2>
+                    <div class="form-group">
+                        <label for="section-name">Section Title</label>
+                        <input type="text" id="section-name" placeholder="e.g., Core API Endpoints">
+                    </div>
+                    <button class="view-btn" onclick="createSection()">+ Add Section</button>
+                </div>
+
+                <div class="card">
+                    <h2>🔗 Add UAT Link Button</h2>
+                    <div class="form-group">
+                        <label for="link-label">Button Text</label>
+                        <input type="text" id="link-label" placeholder="e.g., Staging Web Client">
+                    </div>
+                    <div class="form-group">
+                        <label for="link-url">Target URL Link</label>
+                        <input type="url" id="link-url" placeholder="https://uat.domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="link-section">Assign Parent Section Group</label>
+                        <select id="link-section">
+                            <option value="">-- Select Target Section --</option>
+                        </select>
+                    </div>
+                    <button class="view-btn" onclick="createLink()">+ Add Routing Button</button>
+                </div>
+            </div>
+
+            <div class="admin-grid">
+                <div class="card">
+                    <h2>📂 Manage Sections</h2>
+                    <ul id="manage-sections-list" class="manage-list"></ul>
+                </div>
+
+                <div class="card">
+                    <h2>🔗 Manage Active Buttons</h2>
+                    <ul id="manage-links-list" class="manage-list"></ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
+                <button class="view-btn btn-secondary" style="padding: 0.8rem 2.5rem; font-size: 0.95rem;" onclick="exitAdminView()">🔑 Exit Admin Mode</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="password-modal" class="modal-overlay">
+        <div class="modal-card">
+            <h3>🔑 Security Verification</h3>
+            <p>Please enter the administrator credentials to manage routing layers.</p>
+            <div class="form-group">
+                <label for="admin-password-input">Password</label>
+                <input type="password" id="admin-password-input" placeholder="••••••••" onkeydown="handleModalKeyDown(event)">
+            </div>
+            <div class="modal-actions">
+                <button class="view-btn btn-secondary sm-btn" onclick="closeLoginModal()">Cancel</button>
+                <button class="view-btn sm-btn" onclick="verifyAdminPassword()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="dashboard-footer">
+        For any updates and queries, pls contact Abhishek Kumar (+91 7290 961 815) or <a href="mailto:abhishek_kumar@optum.com">abhishek_kumar@optum.com</a>.
+    </footer>
+
+    <script>
+        // Core State Controller
+        let dashboardData = {
+            sections: [], 
+            links: []     
+        };
+
+        const ADMIN_PASSWORD = "Abhi@1999";
+        let currentView = "user";
+
+        // DOM Targets
+        const userViewEl = document.getElementById('user-view');
+        const adminViewEl = document.getElementById('admin-view');
+        const toggleBtnEl = document.getElementById('toggle-view-btn');
+        const pageTitleEl = document.getElementById('page-title');
+        const sectionSelectEl = document.getElementById('link-section');
+        const sectionsDisplayEl = document.getElementById('sections-display');
+        const manageSectionsListEl = document.getElementById('manage-sections-list');
+        const manageLinksListEl = document.getElementById('manage-links-list');
+        const passwordModalEl = document.getElementById('password-modal');
+        const passwordInputEl = document.getElementById('admin-password-input');
+
+        // State Storage & Remote JSON Initializer 
+        async function fetchJSONData() {
+            try {
+                // Fetch dynamic configuration schema file from github directory level path with cache-busting timestamp parameters
+                const response = await fetch('d_data.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('File mapping could not be resolved');
+                const data = await response.json();
+                
+                if (data && Array.isArray(data.sections) && Array.isArray(data.links)) {
+                    dashboardData = data;
+                    localStorage.setItem('uat_dashboard_data', JSON.stringify(dashboardData));
+                    renderDashboard();
+                }
+            } catch (error) {
+                console.warn("Background auto-sync pooling validation fallback notice:", error);
+            }
+        }
+
+        async function initializeDashboard() {
+            if (localStorage.getItem('uat_dashboard_data')) {
+                dashboardData = JSON.parse(localStorage.getItem('uat_dashboard_data'));
+                renderDashboard();
+                // Pull data silently from server to catch any updates made inside GitHub
+                fetchJSONData();
+            } else {
+                // Fresh deployment initialization configuration request sequence run
+                await fetchJSONData();
+                if (dashboardData.sections.length === 0) {
+                    // Standard fallback structural template rules mapping configuration array
+                    dashboardData = {
+                        sections: ["Authentication Core Services"],
+                        links: [{ label: "Default Sandbox Portal", url: "https://google.com", section: "Authentication Core Services" }]
+                    };
+                    saveData();
+                    renderDashboard();
+                }
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem('uat_dashboard_data', JSON.stringify(dashboardData));
+        }
+
+        function renderDashboard() {
+            const currentSelectVal = sectionSelectEl.value;
+            
+            sectionSelectEl.innerHTML = '<option value="">-- Select Target Section --</option>';
+            manageSectionsListEl.innerHTML = '';
+            manageLinksListEl.innerHTML = '';
+
+            dashboardData.sections.forEach(sec => {
+                const option = document.createElement('option');
+                option.value = sec;
+                option.textContent = sec;
+                sectionSelectEl.appendChild(option);
+            });
+            sectionSelectEl.value = currentSelectVal;
+
+            // 1. Side-by-Side View Interface Rendering engine 
+            if (dashboardData.sections.length === 0) {
+                sectionsDisplayEl.innerHTML = `<div class="no-data"><h3>⚠️ No interactive sections or links configured yet. Use Admin Mode to build dashboards.</h3></div>`;
+            } else {
+                sectionsDisplayEl.innerHTML = '';
+                dashboardData.sections.forEach(section => {
+                    const sectionCard = document.createElement('div');
+                    sectionCard.className = 'section-card';
+                    
+                    const heading = document.createElement('h3');
+                    heading.innerHTML = `📂 ${section}`;
+                    sectionCard.appendChild(heading);
+
+                    const linksList = document.createElement('div');
+                    linksList.className = 'links-list';
+
+                    const filteredLinks = dashboardData.links.filter(link => link.section === section);
+
+                    if (filteredLinks.length === 0) {
+                        linksList.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; font-style: italic; margin: 0.5rem 0;">No active routes inside section.</p>';
+                    } else {
+                        filteredLinks.forEach(link => {
+                            const a = document.createElement('a');
+                            a.href = link.url;
+                            a.target = '_blank';
+                            a.className = 'uat-link-btn';
+                            a.textContent = link.label;
+                            linksList.appendChild(a);
+                        });
+                    }
+                    sectionCard.appendChild(linksList);
+                    sectionsDisplayEl.appendChild(sectionCard);
+                });
+            }
+
+            // 2. Data Management Lists (Section UI Arrays mapping controls)
+            dashboardData.sections.forEach((section, index) => {
+                const li = document.createElement('li');
+                li.className = 'manage-item';
+                li.innerHTML = `
+                    <span><strong style="color: #ffffff;">${section}</strong></span>
+                    <div class="item-actions">
+                        <button class="view-btn sm-btn btn-secondary" onclick="renameSection(${index})">Rename</button>
+                        <button class="view-btn sm-btn btn-danger" onclick="deleteSection(${index})">Delete</button>
+                    </div>
+                `;
+                manageSectionsListEl.appendChild(li);
+            });
+
+            // 3. Data Management Lists (Button UI objects mapping controls)
+            dashboardData.links.forEach((link, index) => {
+                const li = document.createElement('li');
+                li.className = 'manage-item';
+                li.innerHTML = `
+                    <div>
+                        <strong style="color: #ffffff;">${link.label}</strong> <br/>
+                        <small style="color: var(--text-muted);">Section: ${link.section}</small>
+                    </div>
+                    <div class="item-actions">
+                        <button class="view-btn sm-btn btn-secondary" onclick="renameLink(${index})">Edit</button>
+                        <button class="view-btn sm-btn btn-danger" onclick="deleteLink(${index})">Delete</button>
+                    </div>
+                `;
+                manageLinksListEl.appendChild(li);
+            });
+        }
+
+        // Custom Login Overlay Methods
+        function openLoginModal() {
+            if (currentView === "admin") {
+                exitAdminView();
+                return;
+            }
+            passwordInputEl.value = '';
+            passwordModalEl.classList.add('active');
+            passwordInputEl.focus();
+        }
+
+        function closeLoginModal() {
+            passwordModalEl.classList.remove('active');
+        }
+
+        function handleModalKeyDown(e) {
+            if (e.key === "Enter") {
+                verifyAdminPassword();
+            }
+        }
+
+        function verifyAdminPassword() {
+            if (passwordInputEl.value === ADMIN_PASSWORD) {
+                closeLoginModal();
+                switchToAdmin();
+            } else {
+                alert("⚠️ Access Denied! Incorrect Password.");
+                passwordInputEl.value = '';
+                passwordInputEl.focus();
+            }
+        }
+
+        function switchToAdmin() {
+            currentView = "admin";
+            userViewEl.classList.remove('active');
+            adminViewEl.classList.add('active');
+            toggleBtnEl.textContent = "👁️ User View Dashboard";
+            pageTitleEl.textContent = "🛠️ UAT Dashboard (Admin Panel)";
+            renderDashboard();
+        }
+
+        function exitAdminView() {
+            currentView = "user";
+            adminViewEl.classList.remove('active');
+            userViewEl.classList.add('active');
+            toggleBtnEl.textContent = "⚙️ Admin View";
+            pageTitleEl.textContent = "🚀 UAT Links Dashboard";
+            renderDashboard();
+        }
+
+        // Mutation Handlers
+        function createSection() {
+            const secNameInput = document.getElementById('section-name');
+            const name = secNameInput.value.trim();
+
+            if (!name) return alert("Please enter a valid section name.");
+            if (dashboardData.sections.includes(name)) return alert("This category section already exists.");
+
+            dashboardData.sections.push(name);
+            saveData();
+            renderDashboard();
+            secNameInput.value = '';
+        }
+
+        function createLink() {
+            const labelInput = document.getElementById('link-label');
+            const urlInput = document.getElementById('link-url');
+            const sectionSelect = document.getElementById('link-section');
+
+            const label = labelInput.value.trim();
+            const url = urlInput.value.trim();
+            const section = sectionSelect.value;
+
+            if (!label || !url || !section) return alert("All configurations are required to construct data links!");
+
+            dashboardData.links.push({ label, url, section });
+            saveData();
+            renderDashboard();
+
+            labelInput.value = '';
+            urlInput.value = '';
+            sectionSelect.value = '';
+        }
+
+        function renameSection(index) {
+            const oldName = dashboardData.sections[index];
+            const newName = prompt(`Rename section group "${oldName}":`, oldName);
+            
+            if (newName === null) return;
+            const trimmedName = newName.trim();
+            if (!trimmedName) return alert("Section title cannot be empty!");
+            
+            if (dashboardData.sections.includes(trimmedName) && trimmedName !== oldName) {
+                return alert("A section with that name already exists.");
+            }
+
+            dashboardData.links.forEach(link => {
+                if (link.section === oldName) link.section = trimmedName;
+            });
+
+            dashboardData.sections[index] = trimmedName;
+            saveData();
+            renderDashboard();
+        }
+
+        function deleteSection(index) {
+            const targetSection = dashboardData.sections[index];
+            if (confirm(`⚠️ Deleting "${targetSection}" will immediately delete all contained links. Proceed?`)) {
+                dashboardData.links = dashboardData.links.filter(link => link.section !== targetSection);
+                dashboardData.sections.splice(index, 1);
+                saveData();
+                renderDashboard();
+            }
+        }
+
+        function renameLink(index) {
+            const link = dashboardData.links[index];
+            const newLabel = prompt("Modify Route Label text:", link.label);
+            if (newLabel === null) return;
+            
+            const newUrl = prompt("Modify Route URL target string:", link.url);
+            if (newUrl === null) return;
+
+            if (!newLabel.trim() || !newUrl.trim()) return alert("Fields cannot be empty values.");
+
+            dashboardData.links[index].label = newLabel.trim();
+            dashboardData.links[index].url = newUrl.trim();
+            
+            saveData();
+            renderDashboard();
+        }
+
+        function deleteLink(index) {
+            if (confirm(`Delete routing button link "${dashboardData.links[index].label}"?`)) {
+                dashboardData.links.splice(index, 1);
+                saveData();
+                renderDashboard();
+            }
+        }
+
+        // Import / Export JSON Logic Block
+        function exportToJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dashboardData, null, 4));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "d_data.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function importFromJSON(event) {
+            const fileReader = new FileReader();
+            const file = event.target.files[0];
+            if (!file) return;
+
+            fileReader.onload = function(e) {
+                try {
+                    const parsedData = JSON.parse(e.target.result);
+                    if (parsedData && Array.isArray(parsedData.sections) && Array.isArray(parsedData.links)) {
+                        if (confirm("Valid backup configuration recognized. Overwrite your active layouts?")) {
+                            dashboardData = parsedData;
+                            saveData();
+                            renderDashboard();
+                        }
+                    } else {
+                        alert("Structural parsing failed! Invalid JSON database schema layout mapping.");
+                    }
+                } catch (err) {
+                    alert("Error processing config map. Ensure choosing standard text json structures.");
+                }
+            };
+            fileReader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // Initialize Core Engine Execution
+        initializeDashboard();
+
+        // Background auto-sync pooling validation engine (Triggers structural payload pull every 5 minutes)
+        setInterval(() => {
+            console.log("🔄 Background refresh check: pulling latest updates from d_data.json...");
+            fetchJSONData();
+        }, 5 * 60 * 1000); // 5 minutes in milliseconds
+    </script>
+</body>
+</html>
