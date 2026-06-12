@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAT Links Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            --primary-hover: #4338ca;
+            
+            --danger-gradient: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+            --danger-hover: #be123c;
+            
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --secondary-bg: #334155;
+            --secondary-hover: #475569;
+
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dark: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            background: linear-gradient(to right, #a5b4fc, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Global Button Styles */
+        .view-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 0.65rem 1.4rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+
+        .view-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
+            opacity: 0.95;
+        }
+
+        .btn-danger { 
+            background: var(--danger-gradient); 
+            box-shadow: 0 4px 6px -1px rgba(225, 29, 72, 0.2);
+        }
+        .btn-danger:hover {
+            box-shadow: 0 10px 15px -3px rgba(225, 29, 72, 0.4);
+        }
+        .btn-secondary { 
+            background: var(--secondary-bg); 
+            box-shadow: none;
+        }
+        .btn-secondary:hover { background: var(--secondary-hover); }
+        .btn-success { 
+            background: var(--success-gradient);
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* View Panels */
+        .view-panel { display: none; animation: fadeIn 0.4s ease; }
+        .view-panel.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Grid Layouts */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .admin-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Card / Glassmorphism Design */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Form Element Controls */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--card-border);
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .form-group select option {
+            background: #1e293b;
+            color: var(--text-main);
+        }
+
+        /* Manage System Item Lists */
+        .manage-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 320px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        /* Custom Scrollbar for list scroll */
+        .manage-list::-webkit-scrollbar { width: 6px; }
+        .manage-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
+        .manage-list::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+
+        .manage-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .manage-item:last-child { border-bottom: none; }
+        
+        .item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .sm-btn {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.8rem;
+            border-radius: 0.375rem;
+        }
+
+        /* Dashboard View / Grid Layout */
+        .sections-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 1rem;
+            border: 1px solid var(--card-border);
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .section-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .section-card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            margin-top: 1.25rem;
+        }
+
+        /* Direct Route URL Grid Button elements */
+        .uat-link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(51, 65, 85, 0.4);
+            color: #e2e8f0;
+            text-decoration: none;
+            padding: 0.9rem 1.25rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.2s ease;
+        }
+
+        .uat-link-btn:hover {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            transform: scale(1.02);
+        }
+
+        .uat-link-btn::after {
+            content: '➔';
+            font-size: 0.8rem;
+            opacity: 0.7;
+            transition: transform 0.2s;
+        }
+
+        .uat-link-btn:hover::after {
+            transform: translateX(3px);
+            opacity: 1;
+        }
+
+        .no-data {
+            text-align: center;
+            grid-column: 1 / -1;
+            color: var(--text-muted);
+            padding: 4rem 2rem;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            border: 2px dashed var(--card-border);
+        }
+
+        .file-input-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            left: 0; top: 0; opacity: 0;
+            width: 100%; height: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 id="page-title">🚀 UAT Links Dashboard</h1>
+        <button id="toggle-view-btn" class="view-btn" onclick="handleViewToggle()">⚙️ Admin View</button>
+    </nav>
+
+    <div class="container">
+        
+        <div id="user-view" class="view-panel active">
+            <div id="sections-display" class="sections-container">
+                </div>
+        </div>
+
+        <div id="admin-view" class="view-panel">
+            
+            <div class="card" style="display: flex; gap: 1.5rem; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <div>
+                    <h3 style="margin: 0 0 0.35rem 0; font-size: 1.15rem; color: #f1f5f9;">⚙️ Configuration Utility</h3>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Backup configuration arrays or reset active dashboard layouts instantly.</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem;">
+                    <button class="view-btn btn-success" onclick="exportToJSON()">📤 Export JSON</button>
+                    <div class="file-input-wrapper">
+                        <button class="view-btn btn-secondary">📥 Import JSON</button>
+                        <input type="file" id="import-file-input" accept=".json" onchange="importFromJSON(event)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-grid">
+                <div class="card">
+                    <h2>📂 Create New Section</h2>
+                    <div class="form-group">
+                        <label for="section-name">Section Title</label>
+                        <input type="text" id="section-name" placeholder="e.g., Core API Endpoints">
+                    </div>
+                    <button class="view-btn" onclick="createSection()">+ Add Section</button>
+                </div>
+
+                <div class="card">
+                    <h2>🔗 Add UAT Link Button</h2>
+                    <div class="form-group">
+                        <label for="link-label">Button Text</label>
+                        <input type="text" id="link-label" placeholder="e.g., Staging Web Client">
+                    </div>
+                    <div class="form-group">
+                        <label for="link-url">Target URL Link</label>
+                        <input type="url" id="link-url" placeholder="https://uat.domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="link-section">Assign Parent Section Group</label>
+                        <select id="link-section">
+                            <option value="">-- Select Target Section --</option>
+                        </select>
+                    </div>
+                    <button class="view-btn" onclick="createLink()">+ Add Routing Button</button>
+                </div>
+            </div>
+
+            <div class="admin-grid">
+                <div class="card">
+                    <h2>📂 Manage Sections</h2>
+                    <ul id="manage-sections-list" class="manage-list">
+                        </ul>
+                </div>
+
+                <div class="card">
+                    <h2>🔗 Manage Active Buttons</h2>
+                    <ul id="manage-links-list" class="manage-list">
+                        </ul>
+                </div>
+            </div>
+            
+            <center style="margin-top: 3rem; margin-bottom: 3rem;">
+                <button class="view-btn btn-secondary" style="padding: 0.8rem 2.5rem; font-size: 0.95rem;" onclick="exitAdminView()">🔑 Exit Admin Mode</button>
+            </center>
+        </div>
+
+    </div>
+
+    <script>
+        // Core State Controller
+        let dashboardData = {
+            sections: [], 
+            links: []     
+        };
+
+        const ADMIN_PASSWORD = "Abhi@1999";
+        let currentView = "user"; 
+
+        // DOM Targets
+        const userViewEl = document.getElementById('user-view');
+        const adminViewEl = document.getElementById('admin-view');
+        const toggleBtnEl = document.getElementById('toggle-view-btn');
+        const pageTitleEl = document.getElementById('page-title');
+        const sectionSelectEl = document.getElementById('link-section');
+        const sectionsDisplayEl = document.getElementById('sections-display');
+        const manageSectionsListEl = document.getElementById('manage-sections-list');
+        const manageLinksListEl = document.getElementById('manage-links-list');
+
+        // State Storage Initializer
+        if (localStorage.getItem('uat_dashboard_data')) {
+            dashboardData = JSON.parse(localStorage.getItem('uat_dashboard_data'));
+        } else {
+            dashboardData = {
+                sections: ["Authentication Core Services"],
+                links: [{ label: "Default Sandbox Portal", url: "https://google.com", section: "Authentication Core Services" }]
+            };
+            saveData();
+        }
+
+        function saveData() {
+            localStorage.setItem('uat_dashboard_data', JSON.stringify(dashboardData));
+        }
+
+        function renderDashboard() {
+            sectionsDisplayEl.innerHTML = '';
+            sectionSelectEl.innerHTML = '<option value="">-- Select Target Section --</option>';
+            manageSectionsListEl.innerHTML = '';
+            manageLinksListEl.innerHTML = '';
+
+            dashboardData.sections.forEach(sec => {
+                const option = document.createElement('option');
+                option.value = sec;
+                option.textContent = sec;
+                sectionSelectEl.appendChild(option);
+            });
+
+            // 1. Dashboard UI Grid System Generator
+            if (dashboardData.sections.length === 0) {
+                sectionsDisplayEl.innerHTML = `<div class="no-data"><h3>⚠️ No interactive sections or links configured yet. Use Admin Mode to build dashboards.</h3></div>`;
+            } else {
+                dashboardData.sections.forEach(section => {
+                    const sectionCard = document.createElement('div');
+                    sectionCard.className = 'section-card';
+                    
+                    const heading = document.createElement('h3');
+                    heading.innerHTML = `📂 ${section}`;
+                    sectionCard.appendChild(heading);
+
+                    const linksList = document.createElement('div');
+                    linksList.className = 'links-list';
+
+                    const filteredLinks = dashboardData.links.filter(link => link.section === section);
+
+                    if (filteredLinks.length === 0) {
+                        linksList.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; font-style: italic; margin: 0.5rem 0;">No active routes inside section.</p>';
+                    } else {
+                        filteredLinks.forEach(link => {
+                            const a = document.createElement('a');
+                            a.href = link.url;
+                            a.target = '_blank'; 
+                            a.className = 'uat-link-btn';
+                            a.textContent = link.label;
+                            linksList.appendChild(a);
+                        });
+                    }
+                    sectionCard.appendChild(linksList);
+                    sectionsDisplayEl.appendChild(sectionCard);
+                });
+            }
+
+            // 2. Data Management Modals (Section Lists UI)
+            dashboardData.sections.forEach((section, index) => {
+                const li = document.createElement('li');
+                li.className = 'manage-item';
+                li.innerHTML = `
+                    <span><strong style="color: #f1f5f9;">${section}</strong></span>
+                    <div class="item-actions">
+                        <button class="view-btn sm-btn btn-secondary" onclick="renameSection(${index})">Rename</button>
+                        <button class="view-btn sm-btn btn-danger" onclick="deleteSection(${index})">Delete</button>
+                    </div>
+                `;
+                manageSectionsListEl.appendChild(li);
+            });
+
+            // 3. Data Management Modals (Link Objects UI)
+            dashboardData.links.forEach((link, index) => {
+                const li = document.createElement('li');
+                li.className = 'manage-item';
+                li.innerHTML = `
+                    <div>
+                        <strong style="color: #f1f5f9;">${link.label}</strong> <br/>
+                        <small style="color: var(--text-muted);">Section: ${link.section}</small>
+                    </div>
+                    <div class="item-actions">
+                        <button class="view-btn sm-btn btn-secondary" onclick="renameLink(${index})">Edit</button>
+                        <button class="view-btn sm-btn btn-danger" onclick="deleteLink(${index})">Delete</button>
+                    </div>
+                `;
+                manageLinksListEl.appendChild(li);
+            });
+        }
+
+        // Window View State Modifiers
+        function handleViewToggle() {
+            if (currentView === "user") {
+                const passwordInput = prompt("🔑 Security Verification Required. Enter Admin Password:");
+                if (passwordInput === ADMIN_PASSWORD) {
+                    switchToAdmin();
+                } else if (passwordInput !== null) {
+                    alert("⚠️ Access Denied! Incorrect Password.");
+                }
+            } else {
+                exitAdminView();
+            }
+        }
+
+        function switchToAdmin() {
+            currentView = "admin";
+            userViewEl.classList.remove('active');
+            adminViewEl.classList.add('active');
+            toggleBtnEl.textContent = "👁️ User View Dashboard";
+            pageTitleEl.textContent = "🛠️ UAT Dashboard (Admin Panel)";
+            renderDashboard();
+        }
+
+        function exitAdminView() {
+            currentView = "user";
+            adminViewEl.classList.remove('active');
+            userViewEl.classList.add('active');
+            toggleBtnEl.textContent = "⚙️ Admin View";
+            pageTitleEl.textContent = "🚀 UAT Links Dashboard";
+            renderDashboard(); 
+        }
+
+        // Functional Mutations
+        function createSection() {
+            const secNameInput = document.getElementById('section-name');
+            const name = secNameInput.value.trim();
+
+            if (!name) return alert("Please enter a valid section name.");
+            if (dashboardData.sections.includes(name)) return alert("This category section already exists.");
+
+            dashboardData.sections.push(name);
+            saveData();
+            renderDashboard();
+            secNameInput.value = '';
+        }
+
+        function createLink() {
+            const labelInput = document.getElementById('link-label');
+            const urlInput = document.getElementById('link-url');
+            const sectionSelect = document.getElementById('link-section');
+
+            const label = labelInput.value.trim();
+            const url = urlInput.value.trim();
+            const section = sectionSelect.value;
+
+            if (!label || !url || !section) return alert("All configurations are required to construct data links!");
+
+            dashboardData.links.push({ label, url, section });
+            saveData();
+            renderDashboard();
+
+            labelInput.value = '';
+            urlInput.value = '';
+            sectionSelect.value = '';
+        }
+
+        function renameSection(index) {
+            const oldName = dashboardData.sections[index];
+            const newName = prompt(`Rename section group "${oldName}":`, oldName);
+            
+            if (newName === null) return;
+            const trimmedName = newName.trim();
+            if (!trimmedName) return alert("Section title cannot be empty!");
+            
+            if (dashboardData.sections.includes(trimmedName) && trimmedName !== oldName) {
+                return alert("A section with that name already exists.");
+            }
+
+            dashboardData.links.forEach(link => {
+                if (link.section === oldName) link.section = trimmedName;
+            });
+
+            dashboardData.sections[index] = trimmedName;
+            saveData();
+            renderDashboard();
+        }
+
+        function deleteSection(index) {
+            const targetSection = dashboardData.sections[index];
+            if (confirm(`⚠️ Deleting "${targetSection}" will immediately delete all contained links. Proceed?`)) {
+                dashboardData.links = dashboardData.links.filter(link => link.section !== targetSection);
+                dashboardData.sections.splice(index, 1);
+                saveData();
+                renderDashboard();
+            }
+        }
+
+        function renameLink(index) {
+            const link = dashboardData.links[index];
+            const newLabel = prompt("Modify Route Label text:", link.label);
+            if (newLabel === null) return;
+            
+            const newUrl = prompt("Modify Route URL target string:", link.url);
+            if (newUrl === null) return;
+
+            if (!newLabel.trim() || !newUrl.trim()) return alert("Fields cannot be empty values.");
+
+            dashboardData.links[index].label = newLabel.trim();
+            dashboardData.links[index].url = newUrl.trim();
+            
+            saveData();
+            renderDashboard();
+        }
+
+        function deleteLink(index) {
+            if (confirm(`Delete routing button link "${dashboardData.links[index].label}"?`)) {
+                dashboardData.links.splice(index, 1);
+                saveData();
+                renderDashboard();
+            }
+        }
+
+        // Document Object Converters (Import / Export JSON Engine)
+        function exportToJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dashboardData, null, 4));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "UAT_Links_Dashboard_Backup.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function importFromJSON(event) {
+            const fileReader = new FileReader();
+            const file = event.target.files[0];
+            if (!file) return;
+
+            fileReader.onload = function(e) {
+                try {
+                    const parsedData = JSON.parse(e.target.result);
+                    if (parsedData && Array.isArray(parsedData.sections) && Array.isArray(parsedData.links)) {
+                        if (confirm("Valid backup configuration recognized. Overwrite your active layouts?")) {
+                            dashboardData = parsedData;
+                            saveData();
+                            renderDashboard();
+                        }
+                    } else {
+                        alert("Structural parsing failed! Invalid JSON database schema configuration rules.");
+                    }
+                } catch (err) {
+                    alert("Error processing config map. Ensure choosing standard text json structures.");
+                }
+            };
+            fileReader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // Base execution initiation
+        renderDashboard();
+    </script>
+</body>
+</html>
