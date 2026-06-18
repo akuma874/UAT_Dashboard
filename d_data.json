@@ -1,7 +1,8 @@
 {
     "sections": [
         "Documents",
-        "Application Links"
+        "Application Links",
+        "Amazon Connect Links"
     ],
     "links": [
         {
@@ -153,6 +154,81 @@
             "label": "Update Tracker",
             "url": "https://akuma874.github.io/Update_Tracker/",
             "section": "Application Links"
+        },
+        {
+            "label": "Stage - Amazon Connect",
+            "url": "https://launcher.myapps.microsoft.com/api/signin/42ef3ebf-3a80-4ce6-943d-9563ab1ec598?tenantId=db05faca-c82a-4b9d-b9c5-0f64b6755421",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "AWS Simulator",
+            "url": "https://connectsimulator-dev.optum.com/index.html",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Stage - Elastic Admin",
+            "url": "https://aws-connect-cloudfront-enterprise-stg02.uhc.com/",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Prod - Amazon Connect",
+            "url": "https://launcher.myapps.microsoft.com/api/signin/00e0ca12-c998-4fb4-b0b5-fe7de40b9e2d?tenantId=db05faca-c82a-4b9d-b9c5-0f64b6755421",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Prod - Elastic Admin",
+            "url": "https://aws-connect-cloudfront-enterprise-prd02.uhc.com/",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Stage - AWS Splunk",
+            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/search",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Stage - AWS Splunk (All in one)",
+            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/aws_routing_all_in_one?form.gucid_input=00071601891775048211&form.duration_input.earliest=-60m%40m&form.duration_input.latest=now&form.source=%22odm%3Adev%22%20OR%20source%3D%22odm%3Astage%22",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Prod - Splunk",
+            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/search",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Prod - AWS Splunk (All in one)",
+            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/aws_connect_all_in_one",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Stage - GVP BOT Simulator",
+            "url": "https://cl2-dev-scxml.uhc.com/simulatorTesting/Main/?env=CL2-STAGE",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Prod - GVP BOT Simulator",
+            "url": "https://cl2-dev-scxml.uhc.com/simulatorTesting/Main/?env=CL2-PROD",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Advocate Central",
+            "url": "https://advocatecentral-test.optumrx.com/logout",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "TFN Mapping Report (Stage and Prod Both)",
+            "url": "http://omni-arch-reporting.ms.ds.uhc.com/ReportServer/Pages/ReportViewer.aspx?/OmniArchitecture/TFN+RoutePoint+Mapping+Report",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Stage - MACD",
+            "url": "https://aws-connect-macd-stage02.uhc.com/upload",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Prod - MACD",
+            "url": "https://aws-connect-macd-prod02.uhc.com/?code=EL0gmwpPESb5OLdRR459JK7_vixuvGIghyAAAAEw",
+            "section": "Amazon Connect Links"
         }
     ]
 }
