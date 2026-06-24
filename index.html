@@ -8,7 +8,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
         :root {
-            /* Lighter, softer background gradient */
             --bg-gradient: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
             --card-bg: rgba(255, 255, 255, 0.08);
             --card-border: rgba(255, 255, 255, 0.12);
@@ -316,6 +315,18 @@
             border: 2px dashed var(--card-border);
         }
 
+        .file-input-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            left: 0; top: 0; opacity: 0;
+            width: 100%; height: 100%;
+            cursor: pointer;
+        }
+
         /* Secure Password Modal Window Styles */
         .modal-overlay {
             position: fixed;
@@ -415,6 +426,20 @@
 
         <div id="admin-view" class="view-panel">
             
+            <div class="card" style="display: flex; gap: 1.5rem; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <div>
+                    <h3 style="margin: 0 0 0.35rem 0; font-size: 1.15rem; color: #f1f5f9;">⚙️ Configuration Utility</h3>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Backup configuration arrays or migrate historical layouts into Firestore instantly.</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem;">
+                    <button class="view-btn btn-success" id="export-json-btn">📤 Export JSON</button>
+                    <div class="file-input-wrapper">
+                        <button class="view-btn btn-secondary">📥 Import JSON</button>
+                        <input type="file" id="import-file-input" accept=".json">
+                    </div>
+                </div>
+            </div>
+
             <div class="admin-grid">
                 <div class="card">
                     <h2>📂 Create New Section</h2>
@@ -487,7 +512,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        // Your specific configurations loaded from the Firebase platform console
+        // Firebase settings configuration loaded from the platform console
         const firebaseConfig = {
             apiKey: "AIzaSyBeMu-xGaNx_SM_lfBlFUQILZprgTq3pxQ",
             authDomain: "uat-dashboard-50539.firebaseapp.com",
@@ -502,7 +527,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Define single master document path to cleanly sync configuration payloads
+        // Single document path references
         const configDocRef = doc(db, "config_collection", "dashboard_config");
 
         let dashboardData = { sections: [], links: [] };
@@ -521,12 +546,11 @@
         const passwordModalEl = document.getElementById('password-modal');
         const passwordInputEl = document.getElementById('admin-password-input');
 
-        // Real-time Event Listener to capture state database transforms instantly
+        // Real-time Engine Event Listener
         onSnapshot(configDocRef, (docSnap) => {
             if (docSnap.exists()) {
                 dashboardData = docSnap.data();
             } else {
-                // Out-of-the-box structural fallback schema sequence layout mapping
                 dashboardData = {
                     sections: ["Authentication Core Services"],
                     links: [{ label: "Default Sandbox Portal", url: "https://google.com", section: "Authentication Core Services" }]
@@ -536,7 +560,7 @@
             renderDashboard();
         });
 
-        // Write transactions mapping to Firebase Firestore instance
+        // Sync local dataset context right to Firebase Firestore
         async function updateFirebaseData() {
             try {
                 await setDoc(configDocRef, dashboardData);
@@ -627,7 +651,7 @@
                 manageLinksListEl.appendChild(li);
             });
 
-            // Bind Event Listeners for Dynamic UI Elements inside modular scoping
+            // Bind Event Listeners
             document.querySelectorAll('.rename-sec-btn').forEach(btn => btn.onclick = () => renameSection(btn.dataset.index));
             document.querySelectorAll('.delete-sec-btn').forEach(btn => btn.onclick = () => deleteSection(btn.dataset.index));
             document.querySelectorAll('.rename-link-btn').forEach(btn => btn.onclick = () => renameLink(btn.dataset.index));
@@ -722,11 +746,49 @@
             }
         }
 
-        // Map functions cleanly inside the script element click module scope boundaries
+        // Restored Configuration Utility Engine Scripts (Now linked directly to Firebase)
+        function exportToJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dashboardData, null, 4));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "d_data.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function importFromJSON(event) {
+            const fileReader = new FileReader();
+            const file = event.target.files[0];
+            if (!file) return;
+
+            fileReader.onload = async function(e) {
+                try {
+                    const parsedData = JSON.parse(e.target.result);
+                    if (parsedData && Array.isArray(parsedData.sections) && Array.isArray(parsedData.links)) {
+                        if (confirm("Valid backup configuration recognized. Overwrite your live Firebase database layouts?")) {
+                            dashboardData = parsedData;
+                            await updateFirebaseData();
+                            alert("🚀 Success! Data migrated to Firestore completely.");
+                        }
+                    } else {
+                        alert("Structural parsing failed! Invalid JSON format.");
+                    }
+                } catch (err) {
+                    alert("Error processing file. Ensure choosing a standard JSON structure.");
+                }
+            };
+            fileReader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // Map events within standard ES Module scoping boundaries
         document.getElementById('add-section-btn').onclick = createSection;
         document.getElementById('add-link-btn').onclick = createLink;
+        document.getElementById('export-json-btn').onclick = exportToJSON;
+        document.getElementById('import-file-input').onchange = importFromJSON;
 
-        // Global context boundaries adjustments map
+        // Global layout controllers mapping
         window.openLoginModal = function() {
             if (currentView === "admin") { exitAdminView(); return; }
             passwordInputEl.value = '';
