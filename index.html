@@ -8,6 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
         :root {
+            /* Lighter, softer background gradient */
             --bg-gradient: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
             --card-bg: rgba(255, 255, 255, 0.08);
             --card-border: rgba(255, 255, 255, 0.12);
@@ -420,7 +421,7 @@
         
         <div id="user-view" class="view-panel active">
             <div id="sections-display" class="sections-container">
-                <div class="no-data"><h3>⌛ Loading cloud database from Firebase...</h3></div>
+                <div class="no-data"><h3>⌛ Loading configuration database...</h3></div>
             </div>
         </div>
 
@@ -429,13 +430,13 @@
             <div class="card" style="display: flex; gap: 1.5rem; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
                 <div>
                     <h3 style="margin: 0 0 0.35rem 0; font-size: 1.15rem; color: #f1f5f9;">⚙️ Configuration Utility</h3>
-                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Backup configuration arrays or migrate historical layouts into Firestore instantly.</p>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Backup configuration arrays or reset active dashboard layouts instantly.</p>
                 </div>
                 <div style="display: flex; gap: 0.75rem;">
-                    <button class="view-btn btn-success" id="export-json-btn">📤 Export JSON</button>
+                    <button class="view-btn btn-success" onclick="exportToJSON()">📤 Export JSON</button>
                     <div class="file-input-wrapper">
                         <button class="view-btn btn-secondary">📥 Import JSON</button>
-                        <input type="file" id="import-file-input" accept=".json">
+                        <input type="file" id="import-file-input" accept=".json" onchange="importFromJSON(event)">
                     </div>
                 </div>
             </div>
@@ -447,7 +448,7 @@
                         <label for="section-name">Section Title</label>
                         <input type="text" id="section-name" placeholder="e.g., Core API Endpoints">
                     </div>
-                    <button class="view-btn" id="add-section-btn">+ Add Section</button>
+                    <button class="view-btn" onclick="createSection()">+ Add Section</button>
                 </div>
 
                 <div class="card">
@@ -466,7 +467,7 @@
                             <option value="">-- Select Target Section --</option>
                         </select>
                     </div>
-                    <button class="view-btn" id="add-link-btn">+ Add Routing Button</button>
+                    <button class="view-btn" onclick="createLink()">+ Add Routing Button</button>
                 </div>
             </div>
 
@@ -508,29 +509,13 @@
         For any updates and queries, pls contact Abhishek Kumar (+91 7290 961 815) or <a href="mailto:abhishek_kumar@optum.com">abhishek_kumar@optum.com</a>.
     </footer>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-        // Firebase settings configuration loaded from the platform console
-        const firebaseConfig = {
-            apiKey: "AIzaSyBeMu-xGaNx_SM_lfBlFUQILZprgTq3pxQ",
-            authDomain: "uat-dashboard-50539.firebaseapp.com",
-            projectId: "uat-dashboard-50539",
-            storageBucket: "uat-dashboard-50539.firebasestorage.app",
-            messagingSenderId: "249677258648",
-            appId: "1:249677258648:web:99da7320cf1d979ad455ed",
-            measurementId: "G-3DFXG8H73"
+    <script>
+        // Core State Controller
+        let dashboardData = {
+            sections: [], 
+            links: []     
         };
 
-        // Initialize Firebase connection
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // Single document path references
-        const configDocRef = doc(db, "config_collection", "dashboard_config");
-
-        let dashboardData = { sections: [], links: [] };
         const ADMIN_PASSWORD = "Abhi@1999";
         let currentView = "user";
 
@@ -546,28 +531,47 @@
         const passwordModalEl = document.getElementById('password-modal');
         const passwordInputEl = document.getElementById('admin-password-input');
 
-        // Real-time Engine Event Listener
-        onSnapshot(configDocRef, (docSnap) => {
-            if (docSnap.exists()) {
-                dashboardData = docSnap.data();
-            } else {
-                dashboardData = {
-                    sections: ["Authentication Core Services"],
-                    links: [{ label: "Default Sandbox Portal", url: "https://google.com", section: "Authentication Core Services" }]
-                };
-                setDoc(configDocRef, dashboardData);
-            }
-            renderDashboard();
-        });
-
-        // Sync local dataset context right to Firebase Firestore
-        async function updateFirebaseData() {
+        // State Storage & Remote JSON Initializer 
+        async function fetchJSONData() {
             try {
-                await setDoc(configDocRef, dashboardData);
+                // Fetch dynamic configuration schema file from github directory level path with cache-busting timestamp parameters
+                const response = await fetch('d_data.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('File mapping could not be resolved');
+                const data = await response.json();
+                
+                if (data && Array.isArray(data.sections) && Array.isArray(data.links)) {
+                    dashboardData = data;
+                    localStorage.setItem('uat_dashboard_data', JSON.stringify(dashboardData));
+                    renderDashboard();
+                }
             } catch (error) {
-                console.error("Database cloud write exception: ", error);
-                alert("⚠️ Sync Failed! Make sure you updated your Firebase Firestore Database Rules tab to public test mode.");
+                console.warn("Background auto-sync pooling validation fallback notice:", error);
             }
+        }
+
+        async function initializeDashboard() {
+            if (localStorage.getItem('uat_dashboard_data')) {
+                dashboardData = JSON.parse(localStorage.getItem('uat_dashboard_data'));
+                renderDashboard();
+                // Pull data silently from server to catch any updates made inside GitHub
+                fetchJSONData();
+            } else {
+                // Fresh deployment initialization configuration request sequence run
+                await fetchJSONData();
+                if (dashboardData.sections.length === 0) {
+                    // Standard fallback structural template rules mapping configuration array
+                    dashboardData = {
+                        sections: ["Authentication Core Services"],
+                        links: [{ label: "Default Sandbox Portal", url: "https://google.com", section: "Authentication Core Services" }]
+                    };
+                    saveData();
+                    renderDashboard();
+                }
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem('uat_dashboard_data', JSON.stringify(dashboardData));
         }
 
         function renderDashboard() {
@@ -585,7 +589,7 @@
             });
             sectionSelectEl.value = currentSelectVal;
 
-            // Render Client View Layout Grid
+            // 1. Side-by-Side View Interface Rendering engine 
             if (dashboardData.sections.length === 0) {
                 sectionsDisplayEl.innerHTML = `<div class="no-data"><h3>⚠️ No interactive sections or links configured yet. Use Admin Mode to build dashboards.</h3></div>`;
             } else {
@@ -620,21 +624,21 @@
                 });
             }
 
-            // Render Manage Sections List
+            // 2. Data Management Lists (Section UI Arrays mapping controls)
             dashboardData.sections.forEach((section, index) => {
                 const li = document.createElement('li');
                 li.className = 'manage-item';
                 li.innerHTML = `
                     <span><strong style="color: #ffffff;">${section}</strong></span>
                     <div class="item-actions">
-                        <button class="view-btn sm-btn btn-secondary rename-sec-btn" data-index="${index}">Rename</button>
-                        <button class="view-btn sm-btn btn-danger delete-sec-btn" data-index="${index}">Delete</button>
+                        <button class="view-btn sm-btn btn-secondary" onclick="renameSection(${index})">Rename</button>
+                        <button class="view-btn sm-btn btn-danger" onclick="deleteSection(${index})">Delete</button>
                     </div>
                 `;
                 manageSectionsListEl.appendChild(li);
             });
 
-            // Render Manage Links List
+            // 3. Data Management Lists (Button UI objects mapping controls)
             dashboardData.links.forEach((link, index) => {
                 const li = document.createElement('li');
                 li.className = 'manage-item';
@@ -644,18 +648,62 @@
                         <small style="color: var(--text-muted);">Section: ${link.section}</small>
                     </div>
                     <div class="item-actions">
-                        <button class="view-btn sm-btn btn-secondary rename-link-btn" data-index="${index}">Edit</button>
-                        <button class="view-btn sm-btn btn-danger delete-link-btn" data-index="${index}">Delete</button>
+                        <button class="view-btn sm-btn btn-secondary" onclick="renameLink(${index})">Edit</button>
+                        <button class="view-btn sm-btn btn-danger" onclick="deleteLink(${index})">Delete</button>
                     </div>
                 `;
                 manageLinksListEl.appendChild(li);
             });
+        }
 
-            // Bind Event Listeners
-            document.querySelectorAll('.rename-sec-btn').forEach(btn => btn.onclick = () => renameSection(btn.dataset.index));
-            document.querySelectorAll('.delete-sec-btn').forEach(btn => btn.onclick = () => deleteSection(btn.dataset.index));
-            document.querySelectorAll('.rename-link-btn').forEach(btn => btn.onclick = () => renameLink(btn.dataset.index));
-            document.querySelectorAll('.delete-link-btn').forEach(btn => btn.onclick = () => deleteLink(btn.dataset.index));
+        // Custom Login Overlay Methods
+        function openLoginModal() {
+            if (currentView === "admin") {
+                exitAdminView();
+                return;
+            }
+            passwordInputEl.value = '';
+            passwordModalEl.classList.add('active');
+            passwordInputEl.focus();
+        }
+
+        function closeLoginModal() {
+            passwordModalEl.classList.remove('active');
+        }
+
+        function handleModalKeyDown(e) {
+            if (e.key === "Enter") {
+                verifyAdminPassword();
+            }
+        }
+
+        function verifyAdminPassword() {
+            if (passwordInputEl.value === ADMIN_PASSWORD) {
+                closeLoginModal();
+                switchToAdmin();
+            } else {
+                alert("⚠️ Access Denied! Incorrect Password.");
+                passwordInputEl.value = '';
+                passwordInputEl.focus();
+            }
+        }
+
+        function switchToAdmin() {
+            currentView = "admin";
+            userViewEl.classList.remove('active');
+            adminViewEl.classList.add('active');
+            toggleBtnEl.textContent = "👁️ User View Dashboard";
+            pageTitleEl.textContent = "🛠️ UAT Dashboard (Admin Panel)";
+            renderDashboard();
+        }
+
+        function exitAdminView() {
+            currentView = "user";
+            adminViewEl.classList.remove('active');
+            userViewEl.classList.add('active');
+            toggleBtnEl.textContent = "⚙️ Admin View";
+            pageTitleEl.textContent = "🚀 UAT Links Dashboard";
+            renderDashboard();
         }
 
         // Mutation Handlers
@@ -667,7 +715,8 @@
             if (dashboardData.sections.includes(name)) return alert("This category section already exists.");
 
             dashboardData.sections.push(name);
-            updateFirebaseData();
+            saveData();
+            renderDashboard();
             secNameInput.value = '';
         }
 
@@ -683,7 +732,8 @@
             if (!label || !url || !section) return alert("All configurations are required to construct data links!");
 
             dashboardData.links.push({ label, url, section });
-            updateFirebaseData();
+            saveData();
+            renderDashboard();
 
             labelInput.value = '';
             urlInput.value = '';
@@ -691,7 +741,6 @@
         }
 
         function renameSection(index) {
-            index = parseInt(index);
             const oldName = dashboardData.sections[index];
             const newName = prompt(`Rename section group "${oldName}":`, oldName);
             
@@ -708,21 +757,21 @@
             });
 
             dashboardData.sections[index] = trimmedName;
-            updateFirebaseData();
+            saveData();
+            renderDashboard();
         }
 
         function deleteSection(index) {
-            index = parseInt(index);
             const targetSection = dashboardData.sections[index];
             if (confirm(`⚠️ Deleting "${targetSection}" will immediately delete all contained links. Proceed?`)) {
                 dashboardData.links = dashboardData.links.filter(link => link.section !== targetSection);
                 dashboardData.sections.splice(index, 1);
-                updateFirebaseData();
+                saveData();
+                renderDashboard();
             }
         }
 
         function renameLink(index) {
-            index = parseInt(index);
             const link = dashboardData.links[index];
             const newLabel = prompt("Modify Route Label text:", link.label);
             if (newLabel === null) return;
@@ -735,18 +784,19 @@
             dashboardData.links[index].label = newLabel.trim();
             dashboardData.links[index].url = newUrl.trim();
             
-            updateFirebaseData();
+            saveData();
+            renderDashboard();
         }
 
         function deleteLink(index) {
-            index = parseInt(index);
             if (confirm(`Delete routing button link "${dashboardData.links[index].label}"?`)) {
                 dashboardData.links.splice(index, 1);
-                updateFirebaseData();
+                saveData();
+                renderDashboard();
             }
         }
 
-        // Restored Configuration Utility Engine Scripts (Now linked directly to Firebase)
+        // Import / Export JSON Logic Block
         function exportToJSON() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dashboardData, null, 4));
             const downloadAnchor = document.createElement('a');
@@ -762,64 +812,34 @@
             const file = event.target.files[0];
             if (!file) return;
 
-            fileReader.onload = async function(e) {
+            fileReader.onload = function(e) {
                 try {
                     const parsedData = JSON.parse(e.target.result);
                     if (parsedData && Array.isArray(parsedData.sections) && Array.isArray(parsedData.links)) {
-                        if (confirm("Valid backup configuration recognized. Overwrite your live Firebase database layouts?")) {
+                        if (confirm("Valid backup configuration recognized. Overwrite your active layouts?")) {
                             dashboardData = parsedData;
-                            await updateFirebaseData();
-                            alert("🚀 Success! Data migrated to Firestore completely.");
+                            saveData();
+                            renderDashboard();
                         }
                     } else {
-                        alert("Structural parsing failed! Invalid JSON format.");
+                        alert("Structural parsing failed! Invalid JSON database schema layout mapping.");
                     }
                 } catch (err) {
-                    alert("Error processing file. Ensure choosing a standard JSON structure.");
+                    alert("Error processing config map. Ensure choosing standard text json structures.");
                 }
             };
             fileReader.readAsText(file);
             event.target.value = '';
         }
 
-        // Map events within standard ES Module scoping boundaries
-        document.getElementById('add-section-btn').onclick = createSection;
-        document.getElementById('add-link-btn').onclick = createLink;
-        document.getElementById('export-json-btn').onclick = exportToJSON;
-        document.getElementById('import-file-input').onchange = importFromJSON;
+        // Initialize Core Engine Execution
+        initializeDashboard();
 
-        // Global layout controllers mapping
-        window.openLoginModal = function() {
-            if (currentView === "admin") { exitAdminView(); return; }
-            passwordInputEl.value = '';
-            passwordModalEl.classList.add('active');
-            passwordInputEl.focus();
-        };
-        window.closeLoginModal = function() { passwordModalEl.classList.remove('active'); };
-        window.handleModalKeyDown = function(e) { if (e.key === "Enter") verifyAdminPassword(); };
-        window.verifyAdminPassword = function() {
-            if (passwordInputEl.value === ADMIN_PASSWORD) {
-                closeLoginModal();
-                switchToAdmin();
-            } else {
-                alert("⚠️ Access Denied! Incorrect Password.");
-                passwordInputEl.value = ''; passwordInputEl.focus();
-            }
-        };
-        window.switchToAdmin = function() {
-            currentView = "admin";
-            userViewEl.classList.remove('active');
-            adminViewEl.classList.add('active');
-            toggleBtnEl.textContent = "👁️ User View Dashboard";
-            pageTitleEl.textContent = "🛠️ UAT Dashboard (Admin Panel)";
-        };
-        window.exitAdminView = function() {
-            currentView = "user";
-            adminViewEl.classList.remove('active');
-            userViewEl.classList.add('active');
-            toggleBtnEl.textContent = "⚙️ Admin View";
-            pageTitleEl.textContent = "🚀 UAT Links Dashboard";
-        };
+        // Background auto-sync pooling validation engine (Triggers structural payload pull every 5 minutes)
+        setInterval(() => {
+            console.log("🔄 Background refresh check: pulling latest updates from d_data.json...");
+            fetchJSONData();
+        }, 5 * 60 * 1000); // 5 minutes in milliseconds
     </script>
 </body>
 </html>
