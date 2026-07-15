@@ -212,7 +212,7 @@
         },
         {
             "label": "Advocate Central",
-            "url": "https://advocatecentral-test.optumrx.com/logout",
+            "url": "https://advocatecentral-test.optumrx.com/personsearch",
             "section": "Amazon Connect Links"
         },
         {
@@ -228,6 +228,46 @@
         {
             "label": "Prod - MACD",
             "url": "https://aws-connect-macd-prod02.uhc.com/?code=EL0gmwpPESb5OLdRR459JK7_vixuvGIghyAAAAEw",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Elastic Admin Prod 04",
+            "url": "https://aws-connect-ea-enterprise-prd04.uhc.com/index.html",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Stage Splunk Dashboard for ContactID Search",
+            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/non_prod_-_aws_techops_-_crs_search_by_ani__tfn_ucid_destination?form.field1=9529488435&form.field2.earliest=-7d%40h&form.field2.latest=now&form.field3=cd-cf-voice-ep-inbound-v1.11.4",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Prod Splunk Dashboard for ContactID Search",
+            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/aws_techops_-_crs_search_by_ani__tfn_ucid_destination?form.field1=9529488435&form.field2.earliest=-7d%40h&form.field2.latest=now&form.field3=cd-cf-voice-ep-inbound-v1.11.4&hideFilters=false",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "TFN RP Mapping Arch Report",
+            "url": "http://omni-arch-reporting.ms.ds.uhc.com/ReportServer/Pages/ReportViewer.aspx?/OmniArchitecture/TFN+RoutePoint+Mapping+Report",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Stage All In One",
+            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/aws_routing_all_in_one?form.gucid_input=00071632171784121887&form.duration_input.earliest=-60m%40m&form.duration_input.latest=now&form.source=%22odm%3Adev%22%20OR%20source%3D%22odm%3Astage%22",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Prod All in One",
+            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/aws_connect_all_in_one?form.gucid_input=00070244191784110777&form.duration_input.earliest=-4h%40m&form.duration_input.latest=now&form.source=%22odm%3Aproduction%22",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Stage AWS Techops",
+            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/non_prod_-_aws_techops_-_crs_search_by_ani__tfn_ucid_destination?form.field1=9529488435&form.field2.earliest=-7d%40h&form.field2.latest=now&form.field3=cd-cf-voice-ep-inbound-v1.11.4",
+            "section": "Amazon Connect Links"
+        },
+        {
+            "label": "Prod AWS Techops",
+            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/aws_techops_-_crs_search_by_ani__tfn_ucid_destination?form.field1=00070244191784110777&form.field2.earliest=-4h%40m&form.field2.latest=now&form.field3=cd-cf-voice-ep-inbound-v1.11.4&hideFilters=false",
             "section": "Amazon Connect Links"
         }
     ]
