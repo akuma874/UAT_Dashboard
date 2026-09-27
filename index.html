@@ -5,30 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UAT Links Dashboard</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
         :root {
-            --bg-gradient: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --card-border: rgba(255, 255, 255, 0.12);
+            /* Bright Vibrant Neon Dark Theme */
+            --bg-gradient: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1f1f38 100%);
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --card-border: rgba(255, 255, 255, 0.15);
             
-            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-            --primary-hover: #4338ca;
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --accent-yellow: #f59e0b;
+            --accent-green: #10b981;
             
             --danger-gradient: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
-            --danger-hover: #be123c;
-            
             --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            --secondary-bg: #475569;
-            --secondary-hover: #64748b;
+            --secondary-bg: #334155;
+            --secondary-hover: #475569;
 
             --text-main: #f8fafc;
-            --text-muted: #cbd5e1;
-            --text-dark: #0f172a;
+            --text-muted: #94a3b8;
+            --text-highlight: #38bdf8;
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             background: var(--bg-gradient);
             color: var(--text-main);
             margin: 0;
@@ -44,11 +46,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 1.25rem 2rem;
-            border-bottom: 1px solid var(--card-border);
+            background: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 1.1rem 2rem;
+            border-bottom: 2px solid rgba(139, 92, 246, 0.3);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -57,14 +59,14 @@
         .navbar h1 {
             margin: 0;
             font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            background: linear-gradient(to right, #c7d2fe, #a5b4fc);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
         /* Global Button Styles */
@@ -73,97 +75,295 @@
             color: white;
             border: none;
             padding: 0.65rem 1.4rem;
-            border-radius: 0.5rem;
+            border-radius: 0.6rem;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35);
         }
 
         .view-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
-            opacity: 0.95;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(217, 70, 239, 0.5);
+            opacity: 0.98;
         }
 
         .btn-danger { 
             background: var(--danger-gradient); 
-            box-shadow: 0 4px 6px -1px rgba(225, 29, 72, 0.2);
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.35);
         }
-        .btn-danger:hover { box-shadow: 0 10px 15px -3px rgba(225, 29, 72, 0.4); }
+        .btn-danger:hover { box-shadow: 0 8px 20px rgba(244, 63, 94, 0.5); }
         .btn-secondary { background: var(--secondary-bg); box-shadow: none; }
         .btn-secondary:hover { background: var(--secondary-hover); }
         .btn-success { 
             background: var(--success-gradient);
-            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
         }
 
-        /* Container */
+        /* Main Container */
         .container {
-            max-width: 1400px;
+            max-width: 1500px;
             width: 95%;
-            margin: 2.5rem auto;
-            padding: 0 1.5rem;
+            margin: 1.8rem auto;
+            padding: 0 1rem;
             flex: 1;
             box-sizing: border-box;
         }
 
         /* View Panels */
-        .view-panel { display: none; animation: fadeIn 0.4s ease; }
+        .view-panel { display: none; animation: fadeIn 0.35s ease; }
         .view-panel.active { display: block; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Grid Layouts for Admin view controls */
+        /* Search Bar Setup */
+        .search-wrapper {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.9rem 1.25rem 0.9rem 3rem;
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            border-radius: 0.8rem;
+            box-sizing: border-box;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            outline: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+        }
+
+        .search-input:focus {
+            border-color: #c084fc;
+            box-shadow: 0 0 20px rgba(192, 132, 252, 0.35);
+            background: rgba(30, 41, 59, 0.95);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+        /* Split-Pane User Layout */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 868px) {
+            .split-layout { grid-template-columns: 1fr; }
+        }
+
+        /* Left Sidebar Pane */
+        .sidebar-pane {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 1rem;
+            padding: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 90px;
+        }
+
+        .sidebar-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-cyan);
+            font-weight: 800;
+            margin: 0.5rem 0.5rem 0.75rem 0.5rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .nav-item-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
+            border-radius: 0.6rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.92rem;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item-btn:hover {
+            background: rgba(56, 189, 248, 0.12);
+            color: #ffffff;
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .nav-item-btn.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(217, 70, 239, 0.3));
+            border-color: #c084fc;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(192, 132, 252, 0.25);
+            font-weight: 700;
+        }
+
+        .nav-badge {
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 0.75rem;
+            padding: 0.15rem 0.50rem;
+            border-radius: 12px;
+            color: #ffffff;
+        }
+
+        .nav-item-btn.active .nav-badge {
+            background: var(--accent-pink);
+        }
+
+        /* Right Content Pane */
+        .content-pane {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Section Card Design */
+        .section-card {
+            background: rgba(22, 27, 34, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            border-top: 3px solid #818cf8;
+            transition: all 0.25s ease;
+        }
+
+        .section-card:hover {
+            border-color: var(--accent-pink);
+            box-shadow: 0 12px 30px rgba(236, 72, 153, 0.2);
+        }
+
+        .section-card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.75rem;
+        }
+
+        /* Buttons Grid Inside Section Card */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .uat-link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            color: #f1f5f9;
+            text-decoration: none;
+            padding: 0.95rem 1.25rem;
+            border-radius: 0.65rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .uat-link-btn:hover {
+            background: var(--primary-gradient);
+            border-color: #f472b6;
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(217, 70, 239, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .uat-link-btn::after {
+            content: '➔';
+            font-size: 0.85rem;
+            opacity: 0.8;
+            transition: transform 0.2s;
+        }
+
+        .uat-link-btn:hover::after {
+            transform: translateX(4px);
+            opacity: 1;
+        }
+
+        /* Admin Grid & Controls */
         .admin-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         @media (max-width: 768px) {
             .admin-grid { grid-template-columns: 1fr; }
         }
 
-        /* Card / Glassmorphism Design */
         .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 2rem;
+            background: rgba(22, 27, 34, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 1.75rem;
             border-radius: 1rem;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-top: 3px solid var(--accent-cyan);
         }
 
         .card h2 {
             margin-top: 0;
-            margin-bottom: 1.5rem;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #f8fafc;
+            margin-bottom: 1.25rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        /* Form Element Controls */
         .form-group {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.1rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
             font-size: 0.85rem;
             color: var(--text-muted);
         }
@@ -171,8 +371,8 @@
         .form-group input, .form-group select {
             width: 100%;
             padding: 0.75rem 1rem;
-            background: rgba(15, 23, 42, 0.3);
-            border: 1px solid var(--card-border);
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 0.5rem;
             box-sizing: border-box;
             color: var(--text-main);
@@ -183,16 +383,15 @@
 
         .form-group input:focus, .form-group select:focus {
             outline: none;
-            border-color: #818cf8;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+            border-color: #c084fc;
+            box-shadow: 0 0 12px rgba(192, 132, 252, 0.3);
         }
 
         .form-group select option {
-            background: #334155;
+            background: #1e293b;
             color: var(--text-main);
         }
 
-        /* Manage System Item Lists */
         .manage-list {
             list-style: none;
             padding: 0;
@@ -204,19 +403,19 @@
 
         .manage-list::-webkit-scrollbar { width: 6px; }
         .manage-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
-        .manage-list::-webkit-scrollbar-thumb { background: #64748b; border-radius: 10px; }
+        .manage-list::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
 
         .manage-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
-            border-bottom: 1px solid var(--card-border);
+            padding: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             gap: 0.5rem;
         }
 
         .manage-item:last-child { border-bottom: none; }
-        
+
         .item-actions {
             display: flex;
             gap: 0.35rem;
@@ -225,130 +424,18 @@
         }
 
         .sm-btn {
-            padding: 0.4rem 0.65rem;
+            padding: 0.35rem 0.65rem;
             font-size: 0.8rem;
-            border-radius: 0.375rem;
-        }
-
-        /* Side-By-Side Grid Setup for Dashboard Categories */
-        .sections-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .section-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 1rem;
-            border: 1px solid var(--card-border);
-            padding: 1.5rem 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .section-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-        }
-
-        .section-header-wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--card-border);
-            padding-bottom: 0.75rem;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .section-card h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .expand-toggle-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: #a5b4fc;
-            border: 1px solid var(--card-border);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.2s ease;
-        }
-
-        .section-header-wrap:hover .expand-toggle-btn {
-            background: #6366f1;
-            color: white;
-        }
-
-        .links-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.85rem;
-            margin-top: 1.25rem;
-            transition: all 0.3s ease;
-        }
-
-        .links-list.collapsed {
-            display: none;
-        }
-
-        /* Direct Route URL Buttons */
-        .uat-link-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255, 255, 255, 0.05);
-            color: #f1f5f9;
-            text-decoration: none;
-            padding: 0.9rem 1.25rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.2s ease;
-        }
-
-        .uat-link-btn:hover {
-            background: var(--primary-gradient);
-            color: white;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
-            transform: scale(1.02);
-        }
-
-        .uat-link-btn::after {
-            content: '➔';
-            font-size: 0.8rem;
-            opacity: 0.7;
-            transition: transform 0.2s;
-        }
-
-        .uat-link-btn:hover::after {
-            transform: translateX(3px);
-            opacity: 1;
+            border-radius: 0.4rem;
         }
 
         .no-data {
             text-align: center;
-            grid-column: 1 / -1;
             color: var(--text-muted);
-            padding: 4rem 2rem;
+            padding: 3rem 1.5rem;
             background: var(--card-bg);
             border-radius: 1rem;
-            border: 2px dashed var(--card-border);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
         }
 
         .file-input-wrapper {
@@ -363,13 +450,13 @@
             cursor: pointer;
         }
 
-        /* Secure Password Modal Window Styles */
+        /* Password Modal Window */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -384,13 +471,13 @@
         }
 
         .modal-card {
-            background: #1e293b;
-            border: 1px solid var(--card-border);
+            background: #161b22;
+            border: 2px solid #818cf8;
             padding: 2rem;
             border-radius: 1rem;
             width: 100%;
             max-width: 400px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
             transform: scale(0.9);
             transition: transform 0.3s ease;
         }
@@ -419,12 +506,11 @@
             margin-top: 1.5rem;
         }
 
-        /* Footer Styles */
+        /* Footer */
         .dashboard-footer {
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(13, 17, 23, 0.8);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-top: 1px solid var(--card-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1.25rem;
             text-align: center;
             font-size: 0.9rem;
@@ -433,14 +519,14 @@
         }
 
         .dashboard-footer a {
-            color: #a5b4fc;
+            color: #38bdf8;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.2s;
         }
 
         .dashboard-footer a:hover {
-            color: #c7d2fe;
+            color: #f472b6;
             text-decoration: underline;
         }
     </style>
@@ -454,15 +540,35 @@
 
     <div class="container">
         
+        <!-- USER VIEW WITH SPLIT PANE & SEARCH -->
         <div id="user-view" class="view-panel active">
-            <div id="sections-display" class="sections-container">
-                <div class="no-data"><h3>⌛ Loading configuration database...</h3></div>
+            
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="user-search-input" class="search-input" placeholder="Search links or sections..." oninput="handleSearch(this.value)">
             </div>
+
+            <div class="split-layout">
+                <!-- Left Pane Navigation -->
+                <div class="sidebar-pane">
+                    <div class="sidebar-title">Categories</div>
+                    <ul id="sidebar-nav-list" class="nav-list">
+                        <!-- Navigation items populated dynamically -->
+                    </ul>
+                </div>
+
+                <!-- Right Pane Content -->
+                <div id="sections-display" class="content-pane">
+                    <div class="no-data"><h3>⌛ Loading configuration database...</h3></div>
+                </div>
+            </div>
+
         </div>
 
+        <!-- ADMIN VIEW -->
         <div id="admin-view" class="view-panel">
             
-            <div class="card" style="display: flex; gap: 1.5rem; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
+            <div class="card" style="display: flex; gap: 1.5rem; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem; border-top-color: var(--accent-pink);">
                 <div>
                     <h3 style="margin: 0 0 0.35rem 0; font-size: 1.15rem; color: #f1f5f9;">⚙️ Configuration Utility</h3>
                     <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Backup configuration arrays or reset active dashboard layouts instantly.</p>
@@ -508,7 +614,7 @@
 
             <div class="admin-grid">
                 <div class="card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
                         <h2 style="margin: 0;">📂 Manage Sections</h2>
                         <button class="view-btn sm-btn btn-secondary" onclick="sortSections()">🔤 Sort A-Z</button>
                     </div>
@@ -516,7 +622,7 @@
                 </div>
 
                 <div class="card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
                         <h2 style="margin: 0;">🔗 Manage Active Buttons</h2>
                         <button class="view-btn sm-btn btn-secondary" onclick="sortLinksAlphabetically()">🔤 Sort All (A-Z)</button>
                     </div>
@@ -524,13 +630,14 @@
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
+            <div style="text-align: center; margin-top: 2.5rem; margin-bottom: 2.5rem;">
                 <button class="view-btn btn-secondary" style="padding: 0.8rem 2.5rem; font-size: 0.95rem;" onclick="exitAdminView()">🔑 Exit Admin Mode</button>
             </div>
         </div>
 
     </div>
 
+    <!-- SECURITY VERIFICATION MODAL -->
     <div id="password-modal" class="modal-overlay">
         <div class="modal-card">
             <h3>🔑 Security Verification</h3>
@@ -547,7 +654,7 @@
     </div>
 
     <footer class="dashboard-footer">
-        For any updates and queries, pls contact Abhishek Kumar (+91 7290 961 815) or <a href="mailto:abhishek_kumar@optum.com">abhishek_kumar@optum.com</a>.
+        For any updates and queries, pls contact Abhishek Kumar (+91 8700005496) or <a href="mailto:abhishekkumar5756@gmail.com">abhishekkumar5756@gmail.com</a>.
     </footer>
 
     <script>
@@ -557,25 +664,26 @@
             links: []     
         };
 
-        // Track collapse states per section
-        let collapsedSections = {};
+        let selectedSectionFilter = 'ALL';
+        let searchQuery = '';
 
         const ADMIN_PASSWORD = "Abhi@1999";
         let currentView = "user";
 
-        // DOM Targets
+        // DOM Elements
         const userViewEl = document.getElementById('user-view');
         const adminViewEl = document.getElementById('admin-view');
         const toggleBtnEl = document.getElementById('toggle-view-btn');
         const pageTitleEl = document.getElementById('page-title');
         const sectionSelectEl = document.getElementById('link-section');
         const sectionsDisplayEl = document.getElementById('sections-display');
+        const sidebarNavListEl = document.getElementById('sidebar-nav-list');
         const manageSectionsListEl = document.getElementById('manage-sections-list');
         const manageLinksListEl = document.getElementById('manage-links-list');
         const passwordModalEl = document.getElementById('password-modal');
         const passwordInputEl = document.getElementById('admin-password-input');
 
-        // State Storage & Remote JSON Initializer 
+        // State Storage & Remote Sync
         async function fetchJSONData() {
             try {
                 const response = await fetch('d_data.json?t=' + new Date().getTime());
@@ -588,7 +696,7 @@
                     renderDashboard();
                 }
             } catch (error) {
-                console.warn("Background auto-sync pooling validation fallback notice:", error);
+                console.warn("Background auto-sync pooling validation notice:", error);
             }
         }
 
@@ -614,18 +722,21 @@
             localStorage.setItem('uat_dashboard_data', JSON.stringify(dashboardData));
         }
 
-        function toggleSectionExpand(secName) {
-            collapsedSections[secName] = !collapsedSections[secName];
+        function handleSearch(val) {
+            searchQuery = val.trim().toLowerCase();
+            renderDashboard();
+        }
+
+        function selectSectionFilter(secName) {
+            selectedSectionFilter = secName;
             renderDashboard();
         }
 
         function renderDashboard() {
             const currentSelectVal = sectionSelectEl.value;
             
+            // Populate Admin Section Dropdown
             sectionSelectEl.innerHTML = '<option value="">-- Select Target Section --</option>';
-            manageSectionsListEl.innerHTML = '';
-            manageLinksListEl.innerHTML = '';
-
             dashboardData.sections.forEach(sec => {
                 const option = document.createElement('option');
                 option.value = sec;
@@ -634,55 +745,90 @@
             });
             sectionSelectEl.value = currentSelectVal;
 
-            // 1. Dashboard View Interface
+            // Render Left Sidebar Navigation Pane
+            sidebarNavListEl.innerHTML = '';
+            
+            // "All Sections" Item
+            const allLi = document.createElement('li');
+            const allBtn = document.createElement('button');
+            allBtn.className = `nav-item-btn ${selectedSectionFilter === 'ALL' ? 'active' : ''}`;
+            allBtn.onclick = () => selectSectionFilter('ALL');
+            allBtn.innerHTML = `<span>🌐 All Sections</span> <span class="nav-badge">${dashboardData.links.length}</span>`;
+            allLi.appendChild(allBtn);
+            sidebarNavListEl.appendChild(allLi);
+
+            dashboardData.sections.forEach(sec => {
+                const linkCount = dashboardData.links.filter(l => l.section === sec).length;
+                const li = document.createElement('li');
+                const btn = document.createElement('button');
+                btn.className = `nav-item-btn ${selectedSectionFilter === sec ? 'active' : ''}`;
+                btn.onclick = () => selectSectionFilter(sec);
+                btn.innerHTML = `<span>📂 ${sec}</span> <span class="nav-badge">${linkCount}</span>`;
+                li.appendChild(btn);
+                sidebarNavListEl.appendChild(li);
+            });
+
+            // Render User Dashboard Content Pane
             if (dashboardData.sections.length === 0) {
-                sectionsDisplayEl.innerHTML = `<div class="no-data"><h3>⚠️ No interactive sections or links configured yet. Use Admin Mode to build dashboards.</h3></div>`;
+                sectionsDisplayEl.innerHTML = `<div class="no-data"><h3>⚠️ No interactive sections configured yet. Switch to Admin View to add entries.</h3></div>`;
             } else {
                 sectionsDisplayEl.innerHTML = '';
-                dashboardData.sections.forEach(section => {
-                    const sectionCard = document.createElement('div');
-                    sectionCard.className = 'section-card';
-                    
-                    const isCollapsed = !!collapsedSections[section];
+                
+                let visibleSections = dashboardData.sections;
+                if (selectedSectionFilter !== 'ALL') {
+                    visibleSections = visibleSections.filter(sec => sec === selectedSectionFilter);
+                }
 
-                    const headerWrap = document.createElement('div');
-                    headerWrap.className = 'section-header-wrap';
-                    headerWrap.onclick = () => toggleSectionExpand(section);
+                let renderedCardCount = 0;
 
-                    const heading = document.createElement('h3');
-                    heading.innerHTML = `📂 ${section}`;
+                visibleSections.forEach(section => {
+                    let sectionLinks = dashboardData.links.filter(link => link.section === section);
 
-                    const toggleBtn = document.createElement('div');
-                    toggleBtn.className = 'expand-toggle-btn';
-                    toggleBtn.textContent = isCollapsed ? '+' : '−';
-
-                    headerWrap.appendChild(heading);
-                    headerWrap.appendChild(toggleBtn);
-                    sectionCard.appendChild(headerWrap);
-
-                    const linksList = document.createElement('div');
-                    linksList.className = `links-list ${isCollapsed ? 'collapsed' : ''}`;
-
-                    const filteredLinks = dashboardData.links.filter(link => link.section === section);
-
-                    if (filteredLinks.length === 0) {
-                        linksList.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; font-style: italic; margin: 0.5rem 0;">No active routes inside section.</p>';
-                    } else {
-                        filteredLinks.forEach(link => {
-                            const a = document.createElement('a');
-                            a.href = link.url;
-                            a.target = '_blank';
-                            a.className = 'uat-link-btn';
-                            a.textContent = link.label;
-                            linksList.appendChild(a);
-                        });
+                    // Apply Search Query Filtering
+                    if (searchQuery) {
+                        sectionLinks = sectionLinks.filter(link => 
+                            link.label.toLowerCase().includes(searchQuery) || 
+                            link.section.toLowerCase().includes(searchQuery)
+                        );
                     }
-                    sectionCard.appendChild(linksList);
-                    sectionsDisplayEl.appendChild(sectionCard);
+
+                    // Only show section if it has matching links or if no search filter is active
+                    if (sectionLinks.length > 0 || (!searchQuery && selectedSectionFilter !== 'ALL')) {
+                        renderedCardCount++;
+                        const sectionCard = document.createElement('div');
+                        sectionCard.className = 'section-card';
+
+                        const heading = document.createElement('h3');
+                        heading.innerHTML = `📂 ${section}`;
+                        sectionCard.appendChild(heading);
+
+                        const linksGrid = document.createElement('div');
+                        linksGrid.className = 'links-grid';
+
+                        if (sectionLinks.length === 0) {
+                            linksGrid.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; font-style: italic; margin: 0.5rem 0;">No active routes inside section.</p>';
+                        } else {
+                            sectionLinks.forEach(link => {
+                                const a = document.createElement('a');
+                                a.href = link.url;
+                                a.target = '_blank';
+                                a.className = 'uat-link-btn';
+                                a.textContent = link.label;
+                                linksGrid.appendChild(a);
+                            });
+                        }
+                        sectionCard.appendChild(linksGrid);
+                        sectionsDisplayEl.appendChild(sectionCard);
+                    }
                 });
+
+                if (renderedCardCount === 0) {
+                    sectionsDisplayEl.innerHTML = `<div class="no-data"><h3>🔍 No matching links found for "${searchQuery}".</h3></div>`;
+                }
             }
 
-            // 2. Manage Sections List with Sorting Controls
+            // Render Manage Lists in Admin Panel
+            manageSectionsListEl.innerHTML = '';
             dashboardData.sections.forEach((section, index) => {
                 const li = document.createElement('li');
                 li.className = 'manage-item';
@@ -691,7 +837,7 @@
                     <div class="item-actions">
                         <button class="view-btn sm-btn btn-secondary" title="Move Up" onclick="moveSection(${index}, -1)">▲</button>
                         <button class="view-btn sm-btn btn-secondary" title="Move Down" onclick="moveSection(${index}, 1)">▼</button>
-                        <button class="view-btn sm-btn btn-secondary" title="Sort Buttons inside section A-Z" onclick="sortLinksInSection('${section}')">Sort Links A-Z</button>
+                        <button class="view-btn sm-btn btn-secondary" title="Sort Buttons inside section A-Z" onclick="sortLinksInSection('${section}')">Sort Links</button>
                         <button class="view-btn sm-btn btn-secondary" onclick="renameSection(${index})">Rename</button>
                         <button class="view-btn sm-btn btn-danger" onclick="deleteSection(${index})">Delete</button>
                     </div>
@@ -699,7 +845,7 @@
                 manageSectionsListEl.appendChild(li);
             });
 
-            // 3. Manage Buttons List with Sorting Controls
+            manageLinksListEl.innerHTML = '';
             dashboardData.links.forEach((link, index) => {
                 const li = document.createElement('li');
                 li.className = 'manage-item';
@@ -719,7 +865,7 @@
             });
         }
 
-        // Section & Link Ordering & Sorting Functions
+        // Section & Link Movement & Sorting Controls
         function moveSection(index, direction) {
             const targetIndex = index + direction;
             if (targetIndex < 0 || targetIndex >= dashboardData.sections.length) return;
@@ -767,7 +913,7 @@
             renderDashboard();
         }
 
-        // Custom Login Overlay Methods
+        // Admin Security Methods
         function openLoginModal() {
             if (currentView === "admin") {
                 exitAdminView();
@@ -817,13 +963,13 @@
             renderDashboard();
         }
 
-        // Mutation Handlers
+        // Mutation Operations
         function createSection() {
             const secNameInput = document.getElementById('section-name');
             const name = secNameInput.value.trim();
 
             if (!name) return alert("Please enter a valid section name.");
-            if (dashboardData.sections.includes(name)) return alert("This category section already exists.");
+            if (dashboardData.sections.includes(name)) return alert("This section category already exists.");
 
             dashboardData.sections.push(name);
             saveData();
@@ -840,7 +986,7 @@
             const url = urlInput.value.trim();
             const section = sectionSelect.value;
 
-            if (!label || !url || !section) return alert("All configurations are required to construct data links!");
+            if (!label || !url || !section) return alert("All fields are required to add a routing link.");
 
             dashboardData.links.push({ label, url, section });
             saveData();
@@ -867,9 +1013,8 @@
                 if (link.section === oldName) link.section = trimmedName;
             });
 
-            if (collapsedSections[oldName] !== undefined) {
-                collapsedSections[trimmedName] = collapsedSections[oldName];
-                delete collapsedSections[oldName];
+            if (selectedSectionFilter === oldName) {
+                selectedSectionFilter = trimmedName;
             }
 
             dashboardData.sections[index] = trimmedName;
@@ -879,10 +1024,12 @@
 
         function deleteSection(index) {
             const targetSection = dashboardData.sections[index];
-            if (confirm(`⚠️ Deleting "${targetSection}" will immediately delete all contained links. Proceed?`)) {
+            if (confirm(`⚠️ Deleting "${targetSection}" will remove all contained links. Proceed?`)) {
                 dashboardData.links = dashboardData.links.filter(link => link.section !== targetSection);
                 dashboardData.sections.splice(index, 1);
-                delete collapsedSections[targetSection];
+                if (selectedSectionFilter === targetSection) {
+                    selectedSectionFilter = 'ALL';
+                }
                 saveData();
                 renderDashboard();
             }
@@ -913,7 +1060,7 @@
             }
         }
 
-        // Import / Export JSON Logic Block
+        // Import / Export JSON Logic
         function exportToJSON() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dashboardData, null, 4));
             const downloadAnchor = document.createElement('a');
@@ -933,28 +1080,28 @@
                 try {
                     const parsedData = JSON.parse(e.target.result);
                     if (parsedData && Array.isArray(parsedData.sections) && Array.isArray(parsedData.links)) {
-                        if (confirm("Valid backup configuration recognized. Overwrite your active layouts?")) {
+                        if (confirm("Valid backup configuration recognized. Overwrite active layouts?")) {
                             dashboardData = parsedData;
+                            selectedSectionFilter = 'ALL';
                             saveData();
                             renderDashboard();
                         }
                     } else {
-                        alert("Structural parsing failed! Invalid JSON database schema layout mapping.");
+                        alert("Structural parsing failed! Invalid JSON schema.");
                     }
                 } catch (err) {
-                    alert("Error processing config map. Ensure choosing standard text json structures.");
+                    alert("Error processing config file. Ensure standard JSON format.");
                 }
             };
             fileReader.readAsText(file);
             event.target.value = '';
         }
 
-        // Initialize Core Engine Execution
+        // Initialize Engine
         initializeDashboard();
 
-        // Background auto-sync pooling validation engine (Triggers structural payload pull every 5 minutes)
+        // Auto-refresh background polling every 5 minutes
         setInterval(() => {
-            console.log("🔄 Background refresh check: pulling latest updates from d_data.json...");
             fetchJSONData();
         }, 5 * 60 * 1000);
     </script>
