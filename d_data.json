@@ -1,274 +1,1109 @@
-{
-    "sections": [
-        "Documents",
-        "Application Links",
-        "Amazon Connect Links"
-    ],
-    "links": [
-        {
-            "label": "OT Sheet 2026",
-            "url": "https://uhgazure-my.sharepoint.com/:x:/r/personal/abhishek_kumar_optum_com1/Documents/User%20Story/Useful%20Data/OT%20Sheet%20-%202026.xlsx?d=w09591bf373964ba9a054cce9c45fdb8d&csf=1&web=1&e=x1I2da",
-            "section": "Documents"
-        },
-        {
-            "label": "Prod Deploy US Format",
-            "url": "https://uhgazure-my.sharepoint.com/:x:/r/personal/yashpal_s_rawat_optum_com/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B25d84125-3d73-41a5-983e-c6382ca73e6c%7D&wdOrigin=TEAMS-MAGLEV.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1752844528219&web=1",
-            "section": "Documents"
-        },
-        {
-            "label": "Test Data Sheet",
-            "url": "https://uhgazure-my.sharepoint.com/:x:/r/personal/abhishek_kumar_optum_com1/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B4f592afb-a218-4dfc-8dde-5fa51a447ee8%7D&wdOrigin=TEAMS-MAGLEV.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1752859033182&web=1",
-            "section": "Documents"
-        },
-        {
-            "label": "Dep. & Daily Responsibility",
-            "url": "https://uhgazure-my.sharepoint.com/:x:/r/personal/yashpal_s_rawat_optum_com/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7Bb36d3579-0788-4fd6-bf7a-d410e64e55ac%7D&wdOrigin=TEAMS-MAGLEV.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1752844571893&web=1",
-            "section": "Documents"
-        },
-        {
-            "label": "Attendance Tracker",
-            "url": "https://uhgazure-my.sharepoint.com/:x:/r/personal/ramakanta_panda_optum_com/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B79573ba1-f031-4507-a321-8447e2909f9b%7D&wdOrigin=TEAMS-MAGLEV.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1752851379009&web=1",
-            "section": "Documents"
-        },
-        {
-            "label": "Test Cases",
-            "url": "https://uhgazure-my.sharepoint.com/:x:/r/personal/yashpal_s_rawat_optum_com/_layouts/15/Doc.aspx?sourcedoc=%7BAE706DDA-C3AC-4AB3-8E65-477F0696F69F%7D&file=Test%20Cases.xlsx&wdOrigin=TEAMS-MAGLEV.undefined_ns.rwc&action=default&mobileredirect=true",
-            "section": "Documents"
-        },
-        {
-            "label": "Visio Discrepancy Tracker",
-            "url": "https://uhgazure.sharepoint.com/:x:/r/sites/optumrxopa/TR/_layouts/15/Doc.aspx?action=edit&sourcedoc=%7Bf93da667-b396-47a6-ac5f-cee71b7f2534%7D&wdExp=TEAMS-TREATMENT&web=1&TeamsCID=25074902-e68e-4906-8acd-904685f1a30d",
-            "section": "Documents"
-        },
-        {
-            "label": "UAT Library",
-            "url": "https://uhgazure-my.sharepoint.com/:o:/r/personal/rona_cruz_optum_com/_layouts/15/Doc.aspx?sourcedoc=%7B6c4e80ad-a043-4883-bdc6-f56fb40a52ce%7D&action=edit&wd=target(Team%20Process.one%7C8bc75d32-96d9-4eba-8cd8-7b54f8718169%2FIVR%20Profile%20%5Bneeds%20to%20be%20updated%5D%7Ca8c171fc-b4d2-49a1-8f1b-6af6335e4414%2F)&wdorigin=NavigationUrl",
-            "section": "Documents"
-        },
-        {
-            "label": "Leave Tracker",
-            "url": "https://uhgazure-my.sharepoint.com/:x:/r/personal/ankesh_sahai_optum_com/_layouts/15/Doc.aspx?sourcedoc=%7BA221227C-6A04-4A49-9306-D1A5667850CE%7D&file=IVR%20Rx%20LeaveTracker.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&isSPOFile=1&ovuser=db05faca-c82a-4b9d-b9c5-0f64b6755421%2Cabhishek_kumar%40optum.com&wdExp=TEAMS-TREATMENT&web=1&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNjA0MDQwMTcyMyJ9&linkOpenTime=1777900273387",
-            "section": "Documents"
-        },
-        {
-            "label": "HOOP Calendar and Holiday",
-            "url": "https://uhgazure.sharepoint.com/sites/OptumOC/OCArch/SitePages/Architecture%20Data%20Reports.aspx",
-            "section": "Documents"
-        },
-        {
-            "label": "Conversation Manager",
-            "url": "http://wn000089927/CM/cl2/CMProfileSearch.htm?ContactID=00001bM32JJ6B30T&Submit=Retrieve+Profile&indexCMEnv=2",
-            "section": "Documents"
-        },
-        {
-            "label": "Rally - Titans",
-            "url": "https://rally1.rallydev.com/#/372955719412d/userstories?view=2b05fff1-e292-4c8b-b92f-0ed0950b7036",
-            "section": "Application Links"
-        },
-        {
-            "label": "Rally - IVR",
-            "url": "https://rally1.rallydev.com/#/372955719412ud/workviews?view=c476159a-5647-43cb-a045-579f5f4eaf19",
-            "section": "Application Links"
-        },
-        {
-            "label": "Web Sim CL2 - Stage",
-            "url": "https://cl2-dev-scxml.uhc.com/simulatorTesting/Main/?env=CL2-STAGE",
-            "section": "Application Links"
-        },
-        {
-            "label": "Web Sim CL2 - Prod",
-            "url": "https://cl2-dev-scxml.uhc.com/simulatorTesting/Main/?env=CL2-PROD",
-            "section": "Application Links"
-        },
-        {
-            "label": "GAX - Titans",
-            "url": "https://cl2-stg-gaxadmin.uhc.com/gax/?login#/!/view:com.cm.list/1/CfgPerson/CfgFolder:19536",
-            "section": "Application Links"
-        },
-        {
-            "label": "WWE - Stage",
-            "url": "https://cl2-stg-wwe-v2.uhc.com/ui/ad/v1/index.html",
-            "section": "Application Links"
-        },
-        {
-            "label": "WWE - Prod",
-            "url": "https://cl2-wwe-v2.uhc.com/ui/ad/v1/index.html",
-            "section": "Application Links"
-        },
-        {
-            "label": "Splunk - Prod",
-            "url": "https://omni-splunk.optum.com/en-US/app/optum_gvp/search?q=search%207639577903*%0A(index%3Dcba_gvp%20OR%20index%3Dcba_omni)%0A%7C%20rex%20%22%27Cisco-Gucid%27%5B%5Cs%5D%2B%27(%3F%3CGucid%3E%5B%5E%5C%27%5D*)%22%0A%7C%20dedup%20Gucid%20%20%0A%7C%20rex%20%22%27ENT_CallUUID%27%5B%5Cs%5D%2B%27(%3F%3CCallUUID%3E%5B%5E%5C%27%5D*)%22%0A%7C%20dedup%20CallUUID%0A%7C%20rex%20%22%27ENT_VQ%27%5B%5Cs%5D%2B%27(%3F%3CVQ%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_CallType%27%5B%5Cs%5D%2B%27(%3F%3CCallType%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Language%27%5B%5Cs%5D%2B%27(%3F%3CLanguage%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ToAddress%27%5B%5Cs%5D%2B%27(%3F%3CTFN%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_FromAddress%27%5B%5Cs%5D%2B%27(%3F%3CFromAddress%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_SubFunction%27%5B%5Cs%5D%2B%27(%3F%3CSubFunction%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_SubFunctionDetail%27%5B%5Cs%5D%2B%27(%3F%3CSubFunctionDetail%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_SurveyFlag%27%5B%5Cs%5D%2B%27(%3F%3CSurveyOffer%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_EmptyVAG%27%5B%5Cs%5D%2B%27(%3F%3CVAG%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_OffshoreRestrictFlag%27%5B%5Cs%5D%2B%27(%3F%3COffshoreRestrictFlag%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_RoutedPriority%27%5B%5Cs%5D%2B%27(%3F%3CRoutedPriority%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ContactConstituentType%27%5B%5Cs%5D%2B%27(%3F%3CContactConstituentType%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Function%27%5B%5Cs%5D%2B%27(%3F%3CFunction%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Action%27%5B%5Cs%5D%2B%27(%3F%3CAction%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ORX_PatientId%27%5B%5Cs%5D%2B%27(%3F%3CPatientId%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_TFNType%27%5B%5Cs%5D%2B%27(%3F%3CTFNType%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ORX_CAGCarrier%27%5B%5Cs%5D%2B%27(%3F%3CCAGCarrier%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ORX_CAGAccount%27%5B%5Cs%5D%2B%27(%3F%3CCAGAccount%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Client%27%5B%5Cs%5D%2B%27(%3F%3CClient%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ClientType%27%5B%5Cs%5D%2B%27(%3F%3CClientType%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_Reason%27%5B%5Cs%5D%2B%27(%3F%3CHOOP_Reason%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_OpenFlag%27%5B%5Cs%5D%2B%27(%3F%3CHOOP_OpenFlag%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_CalendarName%27%5B%5Cs%5D%2B%27(%3F%3CHOOP_CalendarName%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_IdealAgentExpression%27%5B%5Cs%5D%2B%27(%3F%3CIdealAgentExpression%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_IdealAgentDeviation%27%5B%5Cs%5D%2B%27(%3F%3CIdealAgentDeviation%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_AgentNotificationTxt%27%5B%5Cs%5D%2B%27(%3F%3CAgentNotificationTxt%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_CampaignCD%27%5B%5Cs%5D%2B%27(%3F%3CCampaignCD%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_AgentCount%27%5B%5Cs%5D%2B%27(%3F%3CAgentCount%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_TransferReason%27%5B%5Cs%5D%2B%27(%3F%3CENT_TransferReason%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ProgramCD%27%5B%5Cs%5D%2B%27(%3F%3CProgramCD%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27vplaystring%27%5B%5Cs%5D%2B%27(%3F%3Cvplaystring%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27CSS_VoiceEWT%27%5B%5Cs%5D%2B%27(%3F%3CVoiceEWT%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_AgentReadyCount%27%5B%5Cs%5D%2B%27(%3F%3CAgentReadyCount%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27RTargetAgentSelected%27%5B%5Cs%5D%2B%27(%3F%3CAgentSelected%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27RTargetsWaited%27%5B%5Cs%5D%2B%27(%3F%3CRTargetsWaited%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27GSW_CAMPAIGN_NAME%27%5B%5Cs%5D%2B%27(%3F%3CCAMPAIGN_NAME%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27RTargetObjectSelected%27%5B%5Cs%5D%2B%27(%3F%3CRTargetObjectSelected%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_TherapyCd%27%5B%5Cs%5D%2B%27(%3F%3CTherapyCd%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_AgentID%27%5B%5Cs%5D%2B%27(%3F%3CAgentID%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Unit%27%5B%5Cs%5D%2B%27(%3F%3CUnit%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Segment%27%5B%5Cs%5D%2B%27(%3F%3CSegment%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_OrgLvl4%27%5B%5Cs%5D%2B%27(%3F%3COrgLvl4%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ContactStateCD%27%5B%5Cs%5D%2B%27(%3F%3CContactStateCD%3E%5B%5E%5C%27%5D*)%22%0A%7C%20eval%20Timestamp%3Dstrftime(_time%2C%22%25m%2F%25d%2F%25Y%20%25H%3A%25M%3A%25S%22)%0A%7C%20table%20Timestamp%2C%20Gucid%2C%20TFN%2CVQ%2C%20CallType%2C%20Language%2C%20Client%20%2C%20ClientType%20ContactConstituentType%2C%20Function%2C%20SubFunction%20%2C%20SubFunctionDetail%2C%20ENT_TransferReason%2C%20TFNType%2COffshoreRestrictFlag%2CCAGCarrier%2C%20CAGAccountRoutedPriority%20%2CHOOP_Reason%2C%20HOOP_OpenFlag%20%2C%20SurveyOffer%2C%20HOOP_CalendarName%2C%20RoutedPriority%2C%20IdealAgentExpression%20%2C%20IdealAgentDeviation%20%2C%20RTargetsWaited%20%2C%20RTargetObjectSelected%20%2C%20FromAddress%2C%20Action%2C%20VAG%2C%20AgentNotificationTxt%2C%20PatientId%2C%20CampaignCD%2C%20vplaystring%2C%20CAMPAIGN_NAME%2C%20ProgramCD%2C%20TherapyCd%2C%20VoiceEWT%2C%20AgentCount%20%2C%20AgentReadyCount%20%2C%20Unit%2C%20Segment%2C%20OrgLvl4%2C%20ContactStateCD%2C%20AgentSelected%0A%7C%20strcat%20%22%27%22%20Gucid%20Gucid%0A%7C%20strcat%20%22%27%22%20CallUUID%20CallUUID%0A%7C%20sort%20Timestamp%20descstamp%20desc&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-60m%40m&latest=now&sid=1766585043.568650_B410FDDE-A10F-4E40-9AC1-AB683E01105C&display.page.search.tab=statistics&display.general.type=statistics",
-            "section": "Application Links"
-        },
-        {
-            "label": "Splunk - Stage",
-            "url": "https://npe-splunk.optum.com/en-US/app/search/search?q=search%207639577903*%0A(index%3Dcba_gvp%20OR%20index%3Dcba_omni)%0A%7C%20rex%20%22%27Cisco-Gucid%27%5B%5Cs%5D%2B%27(%3F%3CGucid%3E%5B%5E%5C%27%5D*)%22%0A%7C%20dedup%20Gucid%20%20%0A%7C%20rex%20%22%27ENT_CallUUID%27%5B%5Cs%5D%2B%27(%3F%3CCallUUID%3E%5B%5E%5C%27%5D*)%22%0A%7C%20dedup%20CallUUID%0A%7C%20rex%20%22%27ENT_VQ%27%5B%5Cs%5D%2B%27(%3F%3CVQ%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_CallType%27%5B%5Cs%5D%2B%27(%3F%3CCallType%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Language%27%5B%5Cs%5D%2B%27(%3F%3CLanguage%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ToAddress%27%5B%5Cs%5D%2B%27(%3F%3CTFN%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_FromAddress%27%5B%5Cs%5D%2B%27(%3F%3CFromAddress%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_SubFunction%27%5B%5Cs%5D%2B%27(%3F%3CSubFunction%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_SubFunctionDetail%27%5B%5Cs%5D%2B%27(%3F%3CSubFunctionDetail%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_SurveyFlag%27%5B%5Cs%5D%2B%27(%3F%3CSurveyOffer%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_EmptyVAG%27%5B%5Cs%5D%2B%27(%3F%3CVAG%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_OffshoreRestrictFlag%27%5B%5Cs%5D%2B%27(%3F%3COffshoreRestrictFlag%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_RoutedPriority%27%5B%5Cs%5D%2B%27(%3F%3CRoutedPriority%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ContactConstituentType%27%5B%5Cs%5D%2B%27(%3F%3CContactConstituentType%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Function%27%5B%5Cs%5D%2B%27(%3F%3CFunction%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Action%27%5B%5Cs%5D%2B%27(%3F%3CAction%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ORX_PatientId%27%5B%5Cs%5D%2B%27(%3F%3CPatientId%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_TFNType%27%5B%5Cs%5D%2B%27(%3F%3CTFNType%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ORX_CAGCarrier%27%5B%5Cs%5D%2B%27(%3F%3CCAGCarrier%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ORX_CAGAccount%27%5B%5Cs%5D%2B%27(%3F%3CCAGAccount%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Client%27%5B%5Cs%5D%2B%27(%3F%3CClient%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ClientType%27%5B%5Cs%5D%2B%27(%3F%3CClientType%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_Reason%27%5B%5Cs%5D%2B%27(%3F%3CHOOP_Reason%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_OpenFlag%27%5B%5Cs%5D%2B%27(%3F%3CHOOP_OpenFlag%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_CalendarName%27%5B%5Cs%5D%2B%27(%3F%3CHOOP_CalendarName%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_IdealAgentExpression%27%5B%5Cs%5D%2B%27(%3F%3CIdealAgentExpression%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_IdealAgentDeviation%27%5B%5Cs%5D%2B%27(%3F%3CIdealAgentDeviation%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_AgentNotificationTxt%27%5B%5Cs%5D%2B%27(%3F%3CAgentNotificationTxt%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_CampaignCD%27%5B%5Cs%5D%2B%27(%3F%3CCampaignCD%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_AgentCount%27%5B%5Cs%5D%2B%27(%3F%3CAgentCount%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_TransferReason%27%5B%5Cs%5D%2B%27(%3F%3CENT_TransferReason%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ProgramCD%27%5B%5Cs%5D%2B%27(%3F%3CProgramCD%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27vplaystring%27%5B%5Cs%5D%2B%27(%3F%3Cvplaystring%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27CSS_VoiceEWT%27%5B%5Cs%5D%2B%27(%3F%3CVoiceEWT%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27HOOP_AgentReadyCount%27%5B%5Cs%5D%2B%27(%3F%3CAgentReadyCount%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27RTargetAgentSelected%27%5B%5Cs%5D%2B%27(%3F%3CAgentSelected%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27RTargetsWaited%27%5B%5Cs%5D%2B%27(%3F%3CRTargetsWaited%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27GSW_CAMPAIGN_NAME%27%5B%5Cs%5D%2B%27(%3F%3CCAMPAIGN_NAME%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27RTargetObjectSelected%27%5B%5Cs%5D%2B%27(%3F%3CRTargetObjectSelected%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_TherapyCd%27%5B%5Cs%5D%2B%27(%3F%3CTherapyCd%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_AgentID%27%5B%5Cs%5D%2B%27(%3F%3CAgentID%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Unit%27%5B%5Cs%5D%2B%27(%3F%3CUnit%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_Segment%27%5B%5Cs%5D%2B%27(%3F%3CSegment%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_OrgLvl4%27%5B%5Cs%5D%2B%27(%3F%3COrgLvl4%3E%5B%5E%5C%27%5D*)%22%0A%7C%20rex%20%22%27ENT_ContactStateCD%27%5B%5Cs%5D%2B%27(%3F%3CContactStateCD%3E%5B%5E%5C%27%5D*)%22%0A%7C%20eval%20Timestamp%3Dstrftime(_time%2C%22%25m%2F%25d%2F%25Y%20%25H%3A%25M%3A%25S%22)%0A%7C%20table%20Timestamp%2C%20Gucid%2C%20TFN%2CVQ%2C%20CallType%2C%20Language%2C%20Client%20%2C%20ClientType%20ContactConstituentType%2C%20Function%2C%20SubFunction%20%2C%20SubFunctionDetail%2C%20ENT_TransferReason%2C%20TFNType%2COffshoreRestrictFlag%2CCAGCarrier%2C%20CAGAccountRoutedPriority%20%2CHOOP_Reason%2C%20HOOP_OpenFlag%20%2C%20SurveyOffer%2C%20HOOP_CalendarName%2C%20RoutedPriority%2C%20IdealAgentExpression%20%2C%20IdealAgentDeviation%20%2C%20RTargetsWaited%20%2C%20RTargetObjectSelected%20%2C%20FromAddress%2C%20Action%2C%20VAG%2C%20AgentNotificationTxt%2C%20PatientId%2C%20CampaignCD%2C%20vplaystring%2C%20CAMPAIGN_NAME%2C%20ProgramCD%2C%20TherapyCd%2C%20VoiceEWT%2C%20AgentCount%20%2C%20AgentReadyCount%20%2C%20Unit%2C%20Segment%2C%20OrgLvl4%2C%20ContactStateCD%2C%20AgentSelected%0A%7C%20strcat%20%22%27%22%20Gucid%20Gucid%0A%7C%20strcat%20%22%27%22%20CallUUID%20CallUUID%0A%7C%20sort%20Timestamp%20descstamp%20desc&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-4h%40m&latest=now&display.page.search.tab=statistics&display.general.type=statistics&sid=1766580257.237301_7F0B3C99-9E3C-46CC-B8C8-408D15F6EACA",
-            "section": "Application Links"
-        },
-        {
-            "label": "New Cyara Portal",
-            "url": "https://www.cyaraportal.us/cyarawebportal/979/testcase/testcases",
-            "section": "Application Links"
-        },
-        {
-            "label": "IVR & BOT Sharepoint",
-            "url": "https://uhgazure.sharepoint.com/sites/OptumRx_IVR/Shared%20Documents/Forms/AllItems.aspx?csf=1&web=1&e=oLslbK&FolderCTID=0x0120006FC00BDFB790574995101F78C4698A56&id=%2Fsites%2FOptumRx%5FIVR%2FShared%20Documents%2FShared%20Documents%2FIVR%2FVUI&viewid=46f62e98%2D82c3%2D41f6%2D9654%2D212119802790",
-            "section": "Application Links"
-        },
-        {
-            "label": "Splunk - IVR",
-            "url": "https://omni-splunk.optum.com/en-US/app/optum_gvp/peg_request_respond_by_ani?form.time_tok.earliest=-60m%40m&form.time_tok.latest=now&form.calllog_tok=1&form.peg_tok=1&form.pegsearch_tok=*&form.env_token=*&form.ani_token=%222DAA4872-73D3-46EE-AFFF-CA84C2E39A84%201E2C8043-03D9-4B83-B852-6B82AA8A8BFD%20191C95F1-0AF8-422C-A02A-3206B95B5AFC%204110A679-2C94-4F7A-8166-FEF51A2653F1%20C5A479B3-08DF-4765-8F8D-53EAF38D1180%22&form.session_id=56B51792-7512-42F4-86D2-A9A1FCCCC6B9&form.MenuSearch=*",
-            "section": "Application Links"
-        },
-        {
-            "label": "Allsec",
-            "url": "https://smartpay.buzzily.com/UHGSSO/common/Logout.aspx?e=SE",
-            "section": "Application Links"
-        },
-        {
-            "label": "Architecture Report",
-            "url": "https://uhgazure.sharepoint.com/sites/OptumOC/OCArch/SitePages/Architecture%20Data%20Reports.aspx",
-            "section": "Application Links"
-        },
-        {
-            "label": "Eemaan Tool - Stage",
-            "url": "https://cl2-stg-eemaanpwe.uhc.com/Provisioning/Login",
-            "section": "Application Links"
-        },
-        {
-            "label": "Eemaan Tool - Prod",
-            "url": "https://cl2-eemaanpwe.uhc.com/Provisioning/Login",
-            "section": "Application Links"
-        },
-        {
-            "label": "Omni Channel - Application Links",
-            "url": "https://uhgazure.sharepoint.com/sites/otet-ccs/SRE/SitePages/Application%20Links.aspx",
-            "section": "Application Links"
-        },
-        {
-            "label": "Conv Manager - Splunk",
-            "url": "https://npe-splunk.optum.com/en-US/app/optum_omni_app/conversation_manager_call_analysis_dashboard?form.Environment_token=source%20IN(*)&form.Duration_token.earliest=-24h%40h&form.Duration_token.latest=now&form.token_appType=*&form.Script=OptumFS_IVR&form.TFN=*&form.ANI=*&form.MID=*&form.DOB=*&form.Fname=*&form.Lname=*&form.ProgCode_In_token=*&form.CampCode_In_token=*&form.MenuType=*&form.ProgramCD=*&form.CampaignCD=*&form.Duration=0&form.UCID=*&form.eid=*&form.Script_Status=Success&form.CallType_token=*&form.token_block_duration=0&form.token_CM_ORS_SessionID=*",
-            "section": "Application Links"
-        },
-        {
-            "label": "Update Tracker",
-            "url": "https://akuma874.github.io/Update_Tracker/",
-            "section": "Application Links"
-        },
-        {
-            "label": "Stage - Amazon Connect",
-            "url": "https://launcher.myapps.microsoft.com/api/signin/42ef3ebf-3a80-4ce6-943d-9563ab1ec598?tenantId=db05faca-c82a-4b9d-b9c5-0f64b6755421",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "AWS Simulator",
-            "url": "https://connectsimulator-dev.optum.com/index.html",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Stage - Elastic Admin",
-            "url": "https://aws-connect-cloudfront-enterprise-stg02.uhc.com/",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Prod - Amazon Connect",
-            "url": "https://launcher.myapps.microsoft.com/api/signin/00e0ca12-c998-4fb4-b0b5-fe7de40b9e2d?tenantId=db05faca-c82a-4b9d-b9c5-0f64b6755421",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Prod - Elastic Admin",
-            "url": "https://aws-connect-cloudfront-enterprise-prd02.uhc.com/",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Stage - AWS Splunk",
-            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/search",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Stage - AWS Splunk (All in one)",
-            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/aws_routing_all_in_one?form.gucid_input=00071601891775048211&form.duration_input.earliest=-60m%40m&form.duration_input.latest=now&form.source=%22odm%3Adev%22%20OR%20source%3D%22odm%3Astage%22",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Prod - Splunk",
-            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/search",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Prod - AWS Splunk (All in one)",
-            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/aws_connect_all_in_one",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Stage - GVP BOT Simulator",
-            "url": "https://cl2-dev-scxml.uhc.com/simulatorTesting/Main/?env=CL2-STAGE",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Prod - GVP BOT Simulator",
-            "url": "https://cl2-dev-scxml.uhc.com/simulatorTesting/Main/?env=CL2-PROD",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Advocate Central",
-            "url": "https://advocatecentral-test.optumrx.com/personsearch",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "TFN Mapping Report (Stage and Prod Both)",
-            "url": "http://omni-arch-reporting.ms.ds.uhc.com/ReportServer/Pages/ReportViewer.aspx?/OmniArchitecture/TFN+RoutePoint+Mapping+Report",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Stage - MACD",
-            "url": "https://aws-connect-macd-stage02.uhc.com/upload",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Prod - MACD",
-            "url": "https://aws-connect-macd-prod02.uhc.com/?code=EL0gmwpPESb5OLdRR459JK7_vixuvGIghyAAAAEw",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Elastic Admin Prod 04",
-            "url": "https://aws-connect-ea-enterprise-prd04.uhc.com/index.html",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Stage Splunk Dashboard for ContactID Search",
-            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/non_prod_-_aws_techops_-_crs_search_by_ani__tfn_ucid_destination?form.field1=9529488435&form.field2.earliest=-7d%40h&form.field2.latest=now&form.field3=cd-cf-voice-ep-inbound-v1.11.4",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Prod Splunk Dashboard for ContactID Search",
-            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/aws_techops_-_crs_search_by_ani__tfn_ucid_destination?form.field1=9529488435&form.field2.earliest=-7d%40h&form.field2.latest=now&form.field3=cd-cf-voice-ep-inbound-v1.11.4&hideFilters=false",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "TFN RP Mapping Arch Report",
-            "url": "http://omni-arch-reporting.ms.ds.uhc.com/ReportServer/Pages/ReportViewer.aspx?/OmniArchitecture/TFN+RoutePoint+Mapping+Report",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Stage All In One",
-            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/aws_routing_all_in_one?form.gucid_input=00071632171784121887&form.duration_input.earliest=-60m%40m&form.duration_input.latest=now&form.source=%22odm%3Adev%22%20OR%20source%3D%22odm%3Astage%22",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Prod All in One",
-            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/aws_connect_all_in_one?form.gucid_input=00070244191784110777&form.duration_input.earliest=-4h%40m&form.duration_input.latest=now&form.source=%22odm%3Aproduction%22",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Stage AWS Techops",
-            "url": "https://est-sh.stage.aws-splunk-optum.com/en-US/app/optum_oacp/non_prod_-_aws_techops_-_crs_search_by_ani__tfn_ucid_destination?form.field1=9529488435&form.field2.earliest=-7d%40h&form.field2.latest=now&form.field3=cd-cf-voice-ep-inbound-v1.11.4",
-            "section": "Amazon Connect Links"
-        },
-        {
-            "label": "Prod AWS Techops",
-            "url": "https://est-sh.prod.cloud-splunk-optum.com/en-US/app/optum_oacp/aws_techops_-_crs_search_by_ani__tfn_ucid_destination?form.field1=00070244191784110777&form.field2.earliest=-4h%40m&form.field2.latest=now&form.field3=cd-cf-voice-ep-inbound-v1.11.4&hideFilters=false",
-            "section": "Amazon Connect Links"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAT Links Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            /* Bright Vibrant Neon Dark Theme */
+            --bg-gradient: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1f1f38 100%);
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --card-border: rgba(255, 255, 255, 0.15);
+            
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --accent-yellow: #f59e0b;
+            --accent-green: #10b981;
+            
+            --danger-gradient: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --secondary-bg: #334155;
+            --secondary-hover: #475569;
+
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-highlight: #38bdf8;
         }
-    ]
-}
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 1.1rem 2rem;
+            border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        /* Global Button Styles */
+        .view-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 0.65rem 1.4rem;
+            border-radius: 0.6rem;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35);
+        }
+
+        .view-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(217, 70, 239, 0.5);
+            opacity: 0.98;
+        }
+
+        .btn-danger { 
+            background: var(--danger-gradient); 
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.35);
+        }
+        .btn-danger:hover { box-shadow: 0 8px 20px rgba(244, 63, 94, 0.5); }
+        .btn-secondary { background: var(--secondary-bg); box-shadow: none; }
+        .btn-secondary:hover { background: var(--secondary-hover); }
+        .btn-success { 
+            background: var(--success-gradient);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1500px;
+            width: 95%;
+            margin: 1.8rem auto;
+            padding: 0 1rem;
+            flex: 1;
+            box-sizing: border-box;
+        }
+
+        /* View Panels */
+        .view-panel { display: none; animation: fadeIn 0.35s ease; }
+        .view-panel.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Search Bar Setup */
+        .search-wrapper {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.9rem 1.25rem 0.9rem 3rem;
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            border-radius: 0.8rem;
+            box-sizing: border-box;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            outline: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+        }
+
+        .search-input:focus {
+            border-color: #c084fc;
+            box-shadow: 0 0 20px rgba(192, 132, 252, 0.35);
+            background: rgba(30, 41, 59, 0.95);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+        /* Split-Pane User Layout */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 868px) {
+            .split-layout { grid-template-columns: 1fr; }
+        }
+
+        /* Left Sidebar Pane */
+        .sidebar-pane {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 1rem;
+            padding: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 90px;
+        }
+
+        .sidebar-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-cyan);
+            font-weight: 800;
+            margin: 0.5rem 0.5rem 0.75rem 0.5rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .nav-item-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
+            border-radius: 0.6rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.92rem;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item-btn:hover {
+            background: rgba(56, 189, 248, 0.12);
+            color: #ffffff;
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .nav-item-btn.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(217, 70, 239, 0.3));
+            border-color: #c084fc;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(192, 132, 252, 0.25);
+            font-weight: 700;
+        }
+
+        .nav-badge {
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 0.75rem;
+            padding: 0.15rem 0.50rem;
+            border-radius: 12px;
+            color: #ffffff;
+        }
+
+        .nav-item-btn.active .nav-badge {
+            background: var(--accent-pink);
+        }
+
+        /* Right Content Pane */
+        .content-pane {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Section Card Design */
+        .section-card {
+            background: rgba(22, 27, 34, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            border-top: 3px solid #818cf8;
+            transition: all 0.25s ease;
+        }
+
+        .section-card:hover {
+            border-color: var(--accent-pink);
+            box-shadow: 0 12px 30px rgba(236, 72, 153, 0.2);
+        }
+
+        .section-card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.75rem;
+        }
+
+        /* Buttons Grid Inside Section Card */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .uat-link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            color: #f1f5f9;
+            text-decoration: none;
+            padding: 0.95rem 1.25rem;
+            border-radius: 0.65rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .uat-link-btn:hover {
+            background: var(--primary-gradient);
+            border-color: #f472b6;
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(217, 70, 239, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .uat-link-btn::after {
+            content: '➔';
+            font-size: 0.85rem;
+            opacity: 0.8;
+            transition: transform 0.2s;
+        }
+
+        .uat-link-btn:hover::after {
+            transform: translateX(4px);
+            opacity: 1;
+        }
+
+        /* Admin Grid & Controls */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .admin-grid { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: rgba(22, 27, 34, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 1.75rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-top: 3px solid var(--accent-cyan);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #c084fc;
+            box-shadow: 0 0 12px rgba(192, 132, 252, 0.3);
+        }
+
+        .form-group select option {
+            background: #1e293b;
+            color: var(--text-main);
+        }
+
+        .manage-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 380px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .manage-list::-webkit-scrollbar { width: 6px; }
+        .manage-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
+        .manage-list::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+
+        .manage-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            gap: 0.5rem;
+        }
+
+        .manage-item:last-child { border-bottom: none; }
+
+        .item-actions {
+            display: flex;
+            gap: 0.35rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .sm-btn {
+            padding: 0.35rem 0.65rem;
+            font-size: 0.8rem;
+            border-radius: 0.4rem;
+        }
+
+        .no-data {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 3rem 1.5rem;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .file-input-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            left: 0; top: 0; opacity: 0;
+            width: 100%; height: 100%;
+            cursor: pointer;
+        }
+
+        /* Password Modal Window */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: #161b22;
+            border: 2px solid #818cf8;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-card h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Footer */
+        .dashboard-footer {
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.25rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+
+        .dashboard-footer a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .dashboard-footer a:hover {
+            color: #f472b6;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 id="page-title">🚀 UAT Links Dashboard</h1>
+        <button id="toggle-view-btn" class="view-btn" onclick="openLoginModal()">⚙️ Admin View</button>
+    </nav>
+
+    <div class="container">
+        
+        <!-- USER VIEW WITH SPLIT PANE & SEARCH -->
+        <div id="user-view" class="view-panel active">
+            
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="user-search-input" class="search-input" placeholder="Search links or sections..." oninput="handleSearch(this.value)">
+            </div>
+
+            <div class="split-layout">
+                <!-- Left Pane Navigation -->
+                <div class="sidebar-pane">
+                    <div class="sidebar-title">Categories</div>
+                    <ul id="sidebar-nav-list" class="nav-list">
+                        <!-- Navigation items populated dynamically -->
+                    </ul>
+                </div>
+
+                <!-- Right Pane Content -->
+                <div id="sections-display" class="content-pane">
+                    <div class="no-data"><h3>⌛ Loading configuration database...</h3></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ADMIN VIEW -->
+        <div id="admin-view" class="view-panel">
+            
+            <div class="card" style="display: flex; gap: 1.5rem; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem; border-top-color: var(--accent-pink);">
+                <div>
+                    <h3 style="margin: 0 0 0.35rem 0; font-size: 1.15rem; color: #f1f5f9;">⚙️ Configuration Utility</h3>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Backup configuration arrays or reset active dashboard layouts instantly.</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem;">
+                    <button class="view-btn btn-success" onclick="exportToJSON()">📤 Export JSON</button>
+                    <div class="file-input-wrapper">
+                        <button class="view-btn btn-secondary">📥 Import JSON</button>
+                        <input type="file" id="import-file-input" accept=".json" onchange="importFromJSON(event)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-grid">
+                <div class="card">
+                    <h2>📂 Create New Section</h2>
+                    <div class="form-group">
+                        <label for="section-name">Section Title</label>
+                        <input type="text" id="section-name" placeholder="e.g., Core API Endpoints">
+                    </div>
+                    <button class="view-btn" onclick="createSection()">+ Add Section</button>
+                </div>
+
+                <div class="card">
+                    <h2>🔗 Add UAT Link Button</h2>
+                    <div class="form-group">
+                        <label for="link-label">Button Text</label>
+                        <input type="text" id="link-label" placeholder="e.g., Staging Web Client">
+                    </div>
+                    <div class="form-group">
+                        <label for="link-url">Target URL Link</label>
+                        <input type="url" id="link-url" placeholder="https://uat.domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="link-section">Assign Parent Section Group</label>
+                        <select id="link-section">
+                            <option value="">-- Select Target Section --</option>
+                        </select>
+                    </div>
+                    <button class="view-btn" onclick="createLink()">+ Add Routing Button</button>
+                </div>
+            </div>
+
+            <div class="admin-grid">
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                        <h2 style="margin: 0;">📂 Manage Sections</h2>
+                        <button class="view-btn sm-btn btn-secondary" onclick="sortSections()">🔤 Sort A-Z</button>
+                    </div>
+                    <ul id="manage-sections-list" class="manage-list"></ul>
+                </div>
+
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                        <h2 style="margin: 0;">🔗 Manage Active Buttons</h2>
+                        <button class="view-btn sm-btn btn-secondary" onclick="sortLinksAlphabetically()">🔤 Sort All (A-Z)</button>
+                    </div>
+                    <ul id="manage-links-list" class="manage-list"></ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2.5rem; margin-bottom: 2.5rem;">
+                <button class="view-btn btn-secondary" style="padding: 0.8rem 2.5rem; font-size: 0.95rem;" onclick="exitAdminView()">🔑 Exit Admin Mode</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SECURITY VERIFICATION MODAL -->
+    <div id="password-modal" class="modal-overlay">
+        <div class="modal-card">
+            <h3>🔑 Security Verification</h3>
+            <p>Please enter the administrator credentials to manage routing layers.</p>
+            <div class="form-group">
+                <label for="admin-password-input">Password</label>
+                <input type="password" id="admin-password-input" placeholder="••••••••" onkeydown="handleModalKeyDown(event)">
+            </div>
+            <div class="modal-actions">
+                <button class="view-btn btn-secondary sm-btn" onclick="closeLoginModal()">Cancel</button>
+                <button class="view-btn sm-btn" onclick="verifyAdminPassword()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="dashboard-footer">
+        For any updates and queries, pls contact Abhishek Kumar (+91 8700005496) or <a href="mailto:abhishekkumar5756@gmail.com">abhishekkumar5756@gmail.com</a>.
+    </footer>
+
+    <script>
+        // Core State Controller
+        let dashboardData = {
+            sections: [], 
+            links: []     
+        };
+
+        let selectedSectionFilter = 'ALL';
+        let searchQuery = '';
+
+        const ADMIN_PASSWORD = "Abhi@1999";
+        let currentView = "user";
+
+        // DOM Elements
+        const userViewEl = document.getElementById('user-view');
+        const adminViewEl = document.getElementById('admin-view');
+        const toggleBtnEl = document.getElementById('toggle-view-btn');
+        const pageTitleEl = document.getElementById('page-title');
+        const sectionSelectEl = document.getElementById('link-section');
+        const sectionsDisplayEl = document.getElementById('sections-display');
+        const sidebarNavListEl = document.getElementById('sidebar-nav-list');
+        const manageSectionsListEl = document.getElementById('manage-sections-list');
+        const manageLinksListEl = document.getElementById('manage-links-list');
+        const passwordModalEl = document.getElementById('password-modal');
+        const passwordInputEl = document.getElementById('admin-password-input');
+
+        // State Storage & Remote Sync
+        async function fetchJSONData() {
+            try {
+                const response = await fetch('d_data.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('File mapping could not be resolved');
+                const data = await response.json();
+                
+                if (data && Array.isArray(data.sections) && Array.isArray(data.links)) {
+                    dashboardData = data;
+                    localStorage.setItem('uat_dashboard_data', JSON.stringify(dashboardData));
+                    renderDashboard();
+                }
+            } catch (error) {
+                console.warn("Background auto-sync pooling validation notice:", error);
+            }
+        }
+
+        async function initializeDashboard() {
+            if (localStorage.getItem('uat_dashboard_data')) {
+                dashboardData = JSON.parse(localStorage.getItem('uat_dashboard_data'));
+                renderDashboard();
+                fetchJSONData();
+            } else {
+                await fetchJSONData();
+                if (dashboardData.sections.length === 0) {
+                    dashboardData = {
+                        sections: ["Authentication Core Services"],
+                        links: [{ label: "Default Sandbox Portal", url: "https://google.com", section: "Authentication Core Services" }]
+                    };
+                    saveData();
+                    renderDashboard();
+                }
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem('uat_dashboard_data', JSON.stringify(dashboardData));
+        }
+
+        function handleSearch(val) {
+            searchQuery = val.trim().toLowerCase();
+            renderDashboard();
+        }
+
+        function selectSectionFilter(secName) {
+            selectedSectionFilter = secName;
+            renderDashboard();
+        }
+
+        function renderDashboard() {
+            const currentSelectVal = sectionSelectEl.value;
+            
+            // Populate Admin Section Dropdown
+            sectionSelectEl.innerHTML = '<option value="">-- Select Target Section --</option>';
+            dashboardData.sections.forEach(sec => {
+                const option = document.createElement('option');
+                option.value = sec;
+                option.textContent = sec;
+                sectionSelectEl.appendChild(option);
+            });
+            sectionSelectEl.value = currentSelectVal;
+
+            // Render Left Sidebar Navigation Pane
+            sidebarNavListEl.innerHTML = '';
+            
+            // "All Sections" Item
+            const allLi = document.createElement('li');
+            const allBtn = document.createElement('button');
+            allBtn.className = `nav-item-btn ${selectedSectionFilter === 'ALL' ? 'active' : ''}`;
+            allBtn.onclick = () => selectSectionFilter('ALL');
+            allBtn.innerHTML = `<span>🌐 All Sections</span> <span class="nav-badge">${dashboardData.links.length}</span>`;
+            allLi.appendChild(allBtn);
+            sidebarNavListEl.appendChild(allLi);
+
+            dashboardData.sections.forEach(sec => {
+                const linkCount = dashboardData.links.filter(l => l.section === sec).length;
+                const li = document.createElement('li');
+                const btn = document.createElement('button');
+                btn.className = `nav-item-btn ${selectedSectionFilter === sec ? 'active' : ''}`;
+                btn.onclick = () => selectSectionFilter(sec);
+                btn.innerHTML = `<span>📂 ${sec}</span> <span class="nav-badge">${linkCount}</span>`;
+                li.appendChild(btn);
+                sidebarNavListEl.appendChild(li);
+            });
+
+            // Render User Dashboard Content Pane
+            if (dashboardData.sections.length === 0) {
+                sectionsDisplayEl.innerHTML = `<div class="no-data"><h3>⚠️ No interactive sections configured yet. Switch to Admin View to add entries.</h3></div>`;
+            } else {
+                sectionsDisplayEl.innerHTML = '';
+                
+                let visibleSections = dashboardData.sections;
+                if (selectedSectionFilter !== 'ALL') {
+                    visibleSections = visibleSections.filter(sec => sec === selectedSectionFilter);
+                }
+
+                let renderedCardCount = 0;
+
+                visibleSections.forEach(section => {
+                    let sectionLinks = dashboardData.links.filter(link => link.section === section);
+
+                    // Apply Search Query Filtering
+                    if (searchQuery) {
+                        sectionLinks = sectionLinks.filter(link => 
+                            link.label.toLowerCase().includes(searchQuery) || 
+                            link.section.toLowerCase().includes(searchQuery)
+                        );
+                    }
+
+                    // Only show section if it has matching links or if no search filter is active
+                    if (sectionLinks.length > 0 || (!searchQuery && selectedSectionFilter !== 'ALL')) {
+                        renderedCardCount++;
+                        const sectionCard = document.createElement('div');
+                        sectionCard.className = 'section-card';
+
+                        const heading = document.createElement('h3');
+                        heading.innerHTML = `📂 ${section}`;
+                        sectionCard.appendChild(heading);
+
+                        const linksGrid = document.createElement('div');
+                        linksGrid.className = 'links-grid';
+
+                        if (sectionLinks.length === 0) {
+                            linksGrid.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; font-style: italic; margin: 0.5rem 0;">No active routes inside section.</p>';
+                        } else {
+                            sectionLinks.forEach(link => {
+                                const a = document.createElement('a');
+                                a.href = link.url;
+                                a.target = '_blank';
+                                a.className = 'uat-link-btn';
+                                a.textContent = link.label;
+                                linksGrid.appendChild(a);
+                            });
+                        }
+                        sectionCard.appendChild(linksGrid);
+                        sectionsDisplayEl.appendChild(sectionCard);
+                    }
+                });
+
+                if (renderedCardCount === 0) {
+                    sectionsDisplayEl.innerHTML = `<div class="no-data"><h3>🔍 No matching links found for "${searchQuery}".</h3></div>`;
+                }
+            }
+
+            // Render Manage Lists in Admin Panel
+            manageSectionsListEl.innerHTML = '';
+            dashboardData.sections.forEach((section, index) => {
+                const li = document.createElement('li');
+                li.className = 'manage-item';
+                li.innerHTML = `
+                    <span><strong style="color: #ffffff;">${section}</strong></span>
+                    <div class="item-actions">
+                        <button class="view-btn sm-btn btn-secondary" title="Move Up" onclick="moveSection(${index}, -1)">▲</button>
+                        <button class="view-btn sm-btn btn-secondary" title="Move Down" onclick="moveSection(${index}, 1)">▼</button>
+                        <button class="view-btn sm-btn btn-secondary" title="Sort Buttons inside section A-Z" onclick="sortLinksInSection('${section}')">Sort Links</button>
+                        <button class="view-btn sm-btn btn-secondary" onclick="renameSection(${index})">Rename</button>
+                        <button class="view-btn sm-btn btn-danger" onclick="deleteSection(${index})">Delete</button>
+                    </div>
+                `;
+                manageSectionsListEl.appendChild(li);
+            });
+
+            manageLinksListEl.innerHTML = '';
+            dashboardData.links.forEach((link, index) => {
+                const li = document.createElement('li');
+                li.className = 'manage-item';
+                li.innerHTML = `
+                    <div>
+                        <strong style="color: #ffffff;">${link.label}</strong> <br/>
+                        <small style="color: var(--text-muted);">Section: ${link.section}</small>
+                    </div>
+                    <div class="item-actions">
+                        <button class="view-btn sm-btn btn-secondary" title="Move Up" onclick="moveLink(${index}, -1)">▲</button>
+                        <button class="view-btn sm-btn btn-secondary" title="Move Down" onclick="moveLink(${index}, 1)">▼</button>
+                        <button class="view-btn sm-btn btn-secondary" onclick="renameLink(${index})">Edit</button>
+                        <button class="view-btn sm-btn btn-danger" onclick="deleteLink(${index})">Delete</button>
+                    </div>
+                `;
+                manageLinksListEl.appendChild(li);
+            });
+        }
+
+        // Section & Link Movement & Sorting Controls
+        function moveSection(index, direction) {
+            const targetIndex = index + direction;
+            if (targetIndex < 0 || targetIndex >= dashboardData.sections.length) return;
+            const temp = dashboardData.sections[index];
+            dashboardData.sections[index] = dashboardData.sections[targetIndex];
+            dashboardData.sections[targetIndex] = temp;
+            saveData();
+            renderDashboard();
+        }
+
+        function sortSections() {
+            dashboardData.sections.sort((a, b) => a.localeCompare(b));
+            saveData();
+            renderDashboard();
+        }
+
+        function moveLink(index, direction) {
+            const targetIndex = index + direction;
+            if (targetIndex < 0 || targetIndex >= dashboardData.links.length) return;
+            const temp = dashboardData.links[index];
+            dashboardData.links[index] = dashboardData.links[targetIndex];
+            dashboardData.links[targetIndex] = temp;
+            saveData();
+            renderDashboard();
+        }
+
+        function sortLinksAlphabetically() {
+            dashboardData.links.sort((a, b) => a.label.localeCompare(b.label));
+            saveData();
+            renderDashboard();
+        }
+
+        function sortLinksInSection(sectionName) {
+            const sectionLinks = dashboardData.links.filter(l => l.section === sectionName);
+            sectionLinks.sort((a, b) => a.label.localeCompare(b.label));
+
+            let sectionLinkIdx = 0;
+            dashboardData.links = dashboardData.links.map(l => {
+                if (l.section === sectionName) {
+                    return sectionLinks[sectionLinkIdx++];
+                }
+                return l;
+            });
+            saveData();
+            renderDashboard();
+        }
+
+        // Admin Security Methods
+        function openLoginModal() {
+            if (currentView === "admin") {
+                exitAdminView();
+                return;
+            }
+            passwordInputEl.value = '';
+            passwordModalEl.classList.add('active');
+            passwordInputEl.focus();
+        }
+
+        function closeLoginModal() {
+            passwordModalEl.classList.remove('active');
+        }
+
+        function handleModalKeyDown(e) {
+            if (e.key === "Enter") {
+                verifyAdminPassword();
+            }
+        }
+
+        function verifyAdminPassword() {
+            if (passwordInputEl.value === ADMIN_PASSWORD) {
+                closeLoginModal();
+                switchToAdmin();
+            } else {
+                alert("⚠️ Access Denied! Incorrect Password.");
+                passwordInputEl.value = '';
+                passwordInputEl.focus();
+            }
+        }
+
+        function switchToAdmin() {
+            currentView = "admin";
+            userViewEl.classList.remove('active');
+            adminViewEl.classList.add('active');
+            toggleBtnEl.textContent = "👁️ User View Dashboard";
+            pageTitleEl.textContent = "🛠️ UAT Dashboard (Admin Panel)";
+            renderDashboard();
+        }
+
+        function exitAdminView() {
+            currentView = "user";
+            adminViewEl.classList.remove('active');
+            userViewEl.classList.add('active');
+            toggleBtnEl.textContent = "⚙️ Admin View";
+            pageTitleEl.textContent = "🚀 UAT Links Dashboard";
+            renderDashboard();
+        }
+
+        // Mutation Operations
+        function createSection() {
+            const secNameInput = document.getElementById('section-name');
+            const name = secNameInput.value.trim();
+
+            if (!name) return alert("Please enter a valid section name.");
+            if (dashboardData.sections.includes(name)) return alert("This section category already exists.");
+
+            dashboardData.sections.push(name);
+            saveData();
+            renderDashboard();
+            secNameInput.value = '';
+        }
+
+        function createLink() {
+            const labelInput = document.getElementById('link-label');
+            const urlInput = document.getElementById('link-url');
+            const sectionSelect = document.getElementById('link-section');
+
+            const label = labelInput.value.trim();
+            const url = urlInput.value.trim();
+            const section = sectionSelect.value;
+
+            if (!label || !url || !section) return alert("All fields are required to add a routing link.");
+
+            dashboardData.links.push({ label, url, section });
+            saveData();
+            renderDashboard();
+
+            labelInput.value = '';
+            urlInput.value = '';
+            sectionSelect.value = '';
+        }
+
+        function renameSection(index) {
+            const oldName = dashboardData.sections[index];
+            const newName = prompt(`Rename section group "${oldName}":`, oldName);
+            
+            if (newName === null) return;
+            const trimmedName = newName.trim();
+            if (!trimmedName) return alert("Section title cannot be empty!");
+            
+            if (dashboardData.sections.includes(trimmedName) && trimmedName !== oldName) {
+                return alert("A section with that name already exists.");
+            }
+
+            dashboardData.links.forEach(link => {
+                if (link.section === oldName) link.section = trimmedName;
+            });
+
+            if (selectedSectionFilter === oldName) {
+                selectedSectionFilter = trimmedName;
+            }
+
+            dashboardData.sections[index] = trimmedName;
+            saveData();
+            renderDashboard();
+        }
+
+        function deleteSection(index) {
+            const targetSection = dashboardData.sections[index];
+            if (confirm(`⚠️ Deleting "${targetSection}" will remove all contained links. Proceed?`)) {
+                dashboardData.links = dashboardData.links.filter(link => link.section !== targetSection);
+                dashboardData.sections.splice(index, 1);
+                if (selectedSectionFilter === targetSection) {
+                    selectedSectionFilter = 'ALL';
+                }
+                saveData();
+                renderDashboard();
+            }
+        }
+
+        function renameLink(index) {
+            const link = dashboardData.links[index];
+            const newLabel = prompt("Modify Route Label text:", link.label);
+            if (newLabel === null) return;
+            
+            const newUrl = prompt("Modify Route URL target string:", link.url);
+            if (newUrl === null) return;
+
+            if (!newLabel.trim() || !newUrl.trim()) return alert("Fields cannot be empty values.");
+
+            dashboardData.links[index].label = newLabel.trim();
+            dashboardData.links[index].url = newUrl.trim();
+            
+            saveData();
+            renderDashboard();
+        }
+
+        function deleteLink(index) {
+            if (confirm(`Delete routing button link "${dashboardData.links[index].label}"?`)) {
+                dashboardData.links.splice(index, 1);
+                saveData();
+                renderDashboard();
+            }
+        }
+
+        // Import / Export JSON Logic
+        function exportToJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dashboardData, null, 4));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "d_data.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function importFromJSON(event) {
+            const fileReader = new FileReader();
+            const file = event.target.files[0];
+            if (!file) return;
+
+            fileReader.onload = function(e) {
+                try {
+                    const parsedData = JSON.parse(e.target.result);
+                    if (parsedData && Array.isArray(parsedData.sections) && Array.isArray(parsedData.links)) {
+                        if (confirm("Valid backup configuration recognized. Overwrite active layouts?")) {
+                            dashboardData = parsedData;
+                            selectedSectionFilter = 'ALL';
+                            saveData();
+                            renderDashboard();
+                        }
+                    } else {
+                        alert("Structural parsing failed! Invalid JSON schema.");
+                    }
+                } catch (err) {
+                    alert("Error processing config file. Ensure standard JSON format.");
+                }
+            };
+            fileReader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // Initialize Engine
+        initializeDashboard();
+
+        // Auto-refresh background polling every 5 minutes
+        setInterval(() => {
+            fetchJSONData();
+        }, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
